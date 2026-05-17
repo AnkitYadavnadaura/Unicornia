@@ -37,9 +37,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html lang="en" suppressHydrationWarning>
       <body className="font-sans antialiased">
         <div className="min-h-screen overflow-hidden">
-          <SiteHeader />
           <main>{children}</main>
-          <SiteFooter />
         </div>
       </body>
     </html>
