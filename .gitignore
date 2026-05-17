@@ -13,6 +13,7 @@ dist
 out
 
 # Misc
+tsconfig.tsbuildinfo
 .DS_Store
 *.pem
 
