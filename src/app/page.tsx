@@ -1,4 +1,4 @@
-import LoginOverlay from "./components/login";
+import LoginOverlay from "../components/login";
 export default function UnicorniaApp() {
   const [showLogin, setShowLogin] = useState(false);
   return (
