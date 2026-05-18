@@ -1,4 +1,6 @@
+import LoginOverlay from "./components/login";
 export default function UnicorniaApp() {
+  const [showLogin, setShowLogin] = useState(false);
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden">
       {/* Animated Background */}
@@ -7,6 +9,10 @@ export default function UnicorniaApp() {
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
         <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-violet-500 rounded-full blur-3xl opacity-10 animate-bounce"></div>
       </div>
+      {/*overlay */}
+      {showLogin && (
+  <LoginOverlay close={() => setShowLogin(false)} />
+)}
 
       {/* Navbar */}
       <nav className="sticky top-0 z-50 backdrop-blur-xl bg-black/40 border-b border-white/10">
@@ -30,10 +36,10 @@ export default function UnicorniaApp() {
           </div>
 
           <div className="flex items-center gap-4">
-            <button className="px-5 py-2 rounded-xl border border-white/20 hover:bg-white/10 transition">
+            <button onClick={() => setShowLogin(true)} className="px-5 py-2 rounded-xl border border-white/20 hover:bg-white/10 transition">
               Login
             </button>
-            <button className="px-5 py-2 rounded-xl bg-gradient-to-r from-pink-500 to-violet-500 hover:scale-105 transition-transform shadow-2xl shadow-pink-500/30">
+            <button onClick={() => setShowLogin(true)} className="px-5 py-2 rounded-xl bg-gradient-to-r from-pink-500 to-violet-500 hover:scale-105 transition-transform shadow-2xl shadow-pink-500/30">
               Join Unicornia
             </button>
           </div>
@@ -52,7 +58,7 @@ export default function UnicorniaApp() {
             <h1 className="text-6xl md:text-8xl font-black leading-none mb-8">
               Build The
               <span className="block bg-gradient-to-r from-pink-500 via-violet-500 to-cyan-500 bg-clip-text text-transparent">
-                Startup Nation
+                Startup with Unicornia
               </span>
             </h1>
 
@@ -63,11 +69,11 @@ export default function UnicorniaApp() {
             </p>
 
             <div className="flex flex-wrap gap-5 mb-10">
-              <button className="px-8 py-4 rounded-2xl bg-gradient-to-r from-pink-500 to-violet-500 text-lg font-bold hover:scale-105 transition-transform shadow-2xl shadow-pink-500/30">
+              <button onClick={() => setShowLogin(true)} className="px-8 py-4 rounded-2xl bg-gradient-to-r from-pink-500 to-violet-500 text-lg font-bold hover:scale-105 transition-transform shadow-2xl shadow-pink-500/30">
                 Register Startup
               </button>
 
-              <button className="px-8 py-4 rounded-2xl border border-white/20 bg-white/5 text-lg font-bold hover:bg-white/10 transition">
+              <button onClick={() => setShowLogin(true)} className="px-8 py-4 rounded-2xl border border-white/20 bg-white/5 text-lg font-bold hover:bg-white/10 transition">
                 Join as Individual
               </button>
             </div>
@@ -389,3 +395,7 @@ export default function UnicorniaApp() {
     </div>
   )
 }
+
+
+
+
