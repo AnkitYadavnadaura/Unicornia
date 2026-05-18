@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-
-export default function LoginOverlay({ close }) {
+type LoginOverlayProps = {
+  close: () => void;
+};
+export default function LoginOverlay({ close }: LoginOverlayProps) {
   //const [showLogin, setShowLogin] = useState(true);
   const [selectedRole, setSelectedRole] = useState("startup");
 
