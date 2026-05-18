@@ -85,7 +85,7 @@ export default function SignUpOverlay({ close }: LoginOverlayProps) {
                   placeholder="Enter your Name"
                   className="w-full px-6 py-5 rounded-2xl bg-white/5 border border-white/10 focus:outline-none focus:border-pink-500 text-lg"
                 />
-                {selectedRole === 'individual' && (
+                {selectedRole === 'startup' && (
           <>
           <input
                   type="text"
