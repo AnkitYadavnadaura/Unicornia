@@ -1,23 +1,18 @@
 import React, { useState } from "react";
 
-export default function LoginOverlay() {
-  const [showLogin, setShowLogin] = useState(false);
+export default function LoginOverlay({ close }) {
+  //const [showLogin, setShowLogin] = useState(true);
   const [selectedRole, setSelectedRole] = useState("startup");
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center">
       
       {/* Open Button */}
-      <button
-        onClick={() => setShowLogin(true)}
-        className="px-8 py-4 rounded-2xl bg-gradient-to-r from-pink-500 to-violet-500 text-white font-bold text-lg hover:scale-105 transition-all"
-      >
-        Open Login
-      </button>
 
       {/* Overlay */}
       {showLogin && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-xl px-6">
+          <button onClick={close}>×</button>
           
           {/* Modal */}
           <div className="relative w-full max-w-2xl rounded-[40px] border border-white/10 bg-[#080808]/95 overflow-hidden shadow-[0_0_80px_rgba(236,72,153,0.25)]">
