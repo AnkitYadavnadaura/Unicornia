@@ -18,7 +18,7 @@ export default function UnicorniaApp() {
   <LoginOverlay close={() => setShowLogin(false)} />
 )}
       {showSignup && (
-  <SignupOverlay close={() => setShowSignup(false)} />
+  <SignUpOverlay close={() => setShowSignup(false)} />
 )}
 
       {/* Navbar */}
