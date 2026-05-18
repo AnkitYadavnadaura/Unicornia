@@ -1,8 +1,10 @@
 'use client'
 import React, { useState } from "react";
 import LoginOverlay from "../components/login";
+import SignUpOverlay from "../components/signup";
 export default function UnicorniaApp() {
   const [showLogin, setShowLogin] = useState(false);
+  const [showSignup, setShowSignup] = useState(false);
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden">
       {/* Animated Background */}
@@ -14,6 +16,9 @@ export default function UnicorniaApp() {
       {/*overlay */}
       {showLogin && (
   <LoginOverlay close={() => setShowLogin(false)} />
+)}
+      {showSignup && (
+  <SignupOverlay close={() => setShowSignup(false)} />
 )}
 
       {/* Navbar */}
@@ -41,7 +46,7 @@ export default function UnicorniaApp() {
             <button onClick={() => setShowLogin(true)} className="px-5 py-2 rounded-xl border border-white/20 hover:bg-white/10 transition">
               Login
             </button>
-            <button onClick={() => setShowLogin(true)} className="px-5 py-2 rounded-xl bg-gradient-to-r from-pink-500 to-violet-500 hover:scale-105 transition-transform shadow-2xl shadow-pink-500/30">
+            <button onClick={() => setShowSignup(true)} className="px-5 py-2 rounded-xl bg-gradient-to-r from-pink-500 to-violet-500 hover:scale-105 transition-transform shadow-2xl shadow-pink-500/30">
               Join Unicornia
             </button>
           </div>
@@ -71,11 +76,11 @@ export default function UnicorniaApp() {
             </p>
 
             <div className="flex flex-wrap gap-5 mb-10">
-              <button onClick={() => setShowLogin(true)} className="px-8 py-4 rounded-2xl bg-gradient-to-r from-pink-500 to-violet-500 text-lg font-bold hover:scale-105 transition-transform shadow-2xl shadow-pink-500/30">
+              <button onClick={() => setShowSignup(true)} className="px-8 py-4 rounded-2xl bg-gradient-to-r from-pink-500 to-violet-500 text-lg font-bold hover:scale-105 transition-transform shadow-2xl shadow-pink-500/30">
                 Register Startup
               </button>
 
-              <button onClick={() => setShowLogin(true)} className="px-8 py-4 rounded-2xl border border-white/20 bg-white/5 text-lg font-bold hover:bg-white/10 transition">
+              <button onClick={() => setShowSignup(true)} className="px-8 py-4 rounded-2xl border border-white/20 bg-white/5 text-lg font-bold hover:bg-white/10 transition">
                 Join as Individual
               </button>
             </div>
