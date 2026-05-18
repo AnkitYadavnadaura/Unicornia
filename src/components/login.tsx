@@ -7,14 +7,13 @@ export default function LoginOverlay({ close }: LoginOverlayProps) {
   const [selectedRole, setSelectedRole] = useState("startup");
 
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center">
+    <div className="min-h-screen absolute bg-black flex items-center justify-center">
       
       {/* Open Button */}
 
       {/* Overlay */}
       {showLogin && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-xl px-6">
-          <button onClick={close}>×</button>
           
           {/* Modal */}
           <div className="relative w-full max-w-2xl rounded-[40px] border border-white/10 bg-[#080808]/95 overflow-hidden shadow-[0_0_80px_rgba(236,72,153,0.25)]">
@@ -27,7 +26,7 @@ export default function LoginOverlay({ close }: LoginOverlayProps) {
 
             {/* Close Button */}
             <button
-              onClick={() => setShowLogin(false)}
+              onClick={close}
               className="absolute top-6 right-6 z-20 w-12 h-12 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition text-2xl text-white"
             >
               ×
