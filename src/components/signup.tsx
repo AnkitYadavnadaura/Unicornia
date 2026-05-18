@@ -85,7 +85,9 @@ export default function SignUpOverlay({ close }: LoginOverlayProps) {
                   placeholder="Enter your Name"
                   className="w-full px-6 py-5 rounded-2xl bg-white/5 border border-white/10 focus:outline-none focus:border-pink-500 text-lg"
                 />
-                {selectedRole === 'individual' && (<input
+                {selectedRole === 'individual' && (
+          <>
+          <input
                   type="text"
                   placeholder="Startup Name"
                   className="w-full px-6 py-5 rounded-2xl bg-white/5 border border-white/10 focus:outline-none focus:border-pink-500 text-lg"
@@ -95,7 +97,7 @@ export default function SignUpOverlay({ close }: LoginOverlayProps) {
                   placeholder="current Team Size"
                   className="w-full px-6 py-5 rounded-2xl bg-white/5 border border-white/10 focus:outline-none focus:border-pink-500 text-lg"
                 />
-                                                  
+          </>                      
                                                   
                 )}
 
