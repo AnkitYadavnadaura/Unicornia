@@ -22,7 +22,7 @@ export default function UnicorniaApp() {
 )}
 
       {/* Navbar */}
-      <nav className="sticky top-0 z-50 backdrop-blur-xl bg-black/40 border-b border-white/10">
+      <nav className="sticky top-0 z-40 backdrop-blur-xl bg-black/40 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-2xl bg-gradient-to-r from-pink-500 to-violet-500 flex items-center justify-center text-2xl font-black">
