@@ -48,7 +48,7 @@ export default function SignUpOverlay({ close }: LoginOverlayProps) {
                   </span>
                 </h2>
 
-               {selectedRole === 'startup' && ( <p className="text-gray-400 text-lg mt-5 max-w-xl mx-auto">
+               {selectedRole === 'individual' && ( <p className="text-gray-400 text-lg mt-5 max-w-xl mx-auto">
                   Join the futuristic startup ecosystem.
                 </p>
                                                )}
