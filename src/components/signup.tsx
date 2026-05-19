@@ -41,14 +41,15 @@ export default function SignUpOverlay({ close }: LoginOverlayProps) {
                   U
                 </div>
 
+                {selectedRole === 'individual' && (
                 <h2 className="text-5xl md:text-6xl font-black leading-none">
                   Welcome To
-                   {selectedRole === 'individual' && (<span className="block bg-gradient-to-r from-pink-500 to-cyan-500 bg-clip-text text-transparent mt-2">
+                   <span className="block bg-gradient-to-r from-pink-500 to-cyan-500 bg-clip-text text-transparent mt-2">
                     Unicornia
                   </span>
-                                                      )
+                                                      
                 </h2>
-
+                )
                {selectedRole === 'individual' && ( <p className="text-gray-400 text-lg mt-5 max-w-xl mx-auto">
                   Join the futuristic startup ecosystem.
                 </p>
