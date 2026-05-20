@@ -10,7 +10,8 @@ import {
   Briefcase,
   Sparkles,
   ShieldCheck,
-  CheckCircle2
+  CheckCircle2,
+  Crown
 } from "lucide-react";
 
 export default function UnicorniaDashboard() {
