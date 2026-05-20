@@ -1,28 +1,24 @@
 'use client'
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+//import { motion } from 'framer-motion';
 import {
   Rocket,
-  Wallet,
   Users,
-  Briefcase,
-  CheckCircle2,
-  Bell,
+  Wallet,
   Search,
-  Sparkles,
-  Crown,
-  TrendingUp,
-  ShieldCheck,
-  Plus,
   Activity,
-} from 'lucide-react';
+  Briefcase,
+  Sparkles,
+  ShieldCheck,
+  CheckCircle2
+} from "lucide-react";
 
 export default function UnicorniaDashboard() {
   const [activeTab, setActiveTab] = useState('Dashboard');
-  const [selectedStartup, setSelectedStartup] = useState('NeuroVerse');
+  //const [selectedStartup, setSelectedStartup] = useState('NeuroVerse');
   const [walletBalance, setWalletBalance] = useState(2840000);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [taskFilter, setTaskFilter] = useState('All');
+  //const [taskFilter, setTaskFilter] = useState('All');
 
   const sidebarItems = [
     'Dashboard',
