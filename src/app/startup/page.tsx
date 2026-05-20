@@ -16,7 +16,7 @@ import {
 
 export default function UnicorniaDashboard() {
   const [activeTab, setActiveTab] = useState('Dashboard');
-  const [, setSelectedStartup] = useState('NeuroVerse');
+  //const [, setSelectedStartup] = useState('NeuroVerse');
   const [walletBalance, setWalletBalance] = useState(2840000);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [ ,setTaskFilter] = useState('All');
@@ -31,50 +31,7 @@ export default function UnicorniaDashboard() {
     'Analytics',
     'Settings',
   ];
-  const startups = [
-    {
-      name: 'QuantumForge',
-      category: 'AI Infrastructure',
-      growth: '+48%',
-      valuation: '$12M',
-      members: 18,
-      tokens: '420K',
-    },
-    {
-      name: 'NeuroVerse',
-      category: 'Neural Commerce',
-      growth: '+61%',
-      valuation: '$24M',
-      members: 34,
-      tokens: '880K',
-    },
-    {
-      name: 'AgriNova',
-      category: 'Smart Farming',
-      growth: '+33%',
-      valuation: '$8M',
-      members: 11,
-      tokens: '250K',
-    },
-  ];
-
-  const team = [
-    {
-      name: 'Ankit Yadav',
-      role: 'Founder & Vision Lead',
-      progress: '92%',
-    },
-    {
-      name: 'Riya Sharma',
-      role: 'UI/UX Designer',
-      progress: '74%',
-    },
-    {
-      name: 'Aman Verma',
-      role: 'Backend Engineer',
-      progress: '81%',
-    },
-  ];
+ 
 
   const tasks = [
     'Build investor analytics panel',
