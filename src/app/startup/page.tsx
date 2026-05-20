@@ -19,7 +19,7 @@ export default function UnicorniaDashboard() {
   //const [, setSelectedStartup] = useState('NeuroVerse');
   const [walletBalance, setWalletBalance] = useState(2840000);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [ ,setTaskFilter] = useState('All');
+  //const [ ,setTaskFilter] = useState('All');
 
   const sidebarItems = [
     'Dashboard',
