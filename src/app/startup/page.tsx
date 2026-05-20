@@ -219,10 +219,10 @@ const teamMembers = [
 <button className="px-5 py-3 rounded-2xl border border-white/20">Invite Team</button>
 </div>
 </div>
-{statsCards.map(([title,value]) => (
-<div key={title} className="bg-white rounded-3xl border border-gray-200 p-6 shadow-sm">
-<p className="text-gray-500 text-xs">{title}</p>
-<h2 className="text-lg font-semibold mt-4">{value}</h2>
+{statsCards.map((card) => (
+<div key={card.title} className="bg-white rounded-3xl border border-gray-200 p-6 shadow-sm">
+<p className="text-gray-500 text-xs">{card.title}</p>
+<h2 className="text-lg font-semibold mt-4">{card.value}</h2>
 </div>
 ))}
 </section>
