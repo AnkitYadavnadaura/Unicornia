@@ -16,10 +16,10 @@ import {
 
 export default function UnicorniaDashboard() {
   const [activeTab, setActiveTab] = useState('Dashboard');
-  //const [selectedStartup, setSelectedStartup] = useState('NeuroVerse');
+  const [selectedStartup, setSelectedStartup] = useState('NeuroVerse');
   const [walletBalance, setWalletBalance] = useState(2840000);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  //const [taskFilter, setTaskFilter] = useState('All');
+  const [taskFilter, setTaskFilter] = useState('All');
 
   const sidebarItems = [
     'Dashboard',
