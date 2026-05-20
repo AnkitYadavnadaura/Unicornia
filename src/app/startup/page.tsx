@@ -418,7 +418,55 @@ const teamMembers = [
           </div>
 
           {/* Right */}
-          <section className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden">
+          <div className="flex items-center gap-6">
+
+            {/* Performance */}
+            <div className="hidden md:block w-44">
+              <div className="flex items-center justify-between mb-2">
+                <p className="text-xs text-gray-500">
+                  Performance
+                </p>
+
+                <p className="text-xs font-semibold">
+                  {member.performance}%
+                </p>
+              </div>
+
+              <div className="w-full h-2 rounded-full bg-gray-100 overflow-hidden">
+                <div
+                  className="h-full rounded-full bg-black transition-all"
+                  style={{
+                    width: `${member.performance}%`,
+                  }}
+                />
+              </div>
+            </div>
+
+            {/* Actions */}
+            <div className="flex items-center gap-3">
+
+              <button
+                className="px-4 py-2 rounded-xl border border-gray-300 text-sm hover:bg-gray-100 transition-all"
+              >
+                Message
+              </button>
+
+              <button
+                className="px-4 py-2 rounded-xl bg-black text-white text-sm hover:opacity-90 transition-all"
+              >
+                View
+              </button>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    ))}
+
+  </div>
+</section>
+  <section className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden">
 
   {/* Header */}
   <div className="p-6 border-b border-gray-100 flex items-center justify-between sticky top-0 bg-white z-10">
