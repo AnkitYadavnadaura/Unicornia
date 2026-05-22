@@ -113,13 +113,6 @@ const deleteTask = (id: number) => {
   ];
  
 
-  const tasks = [
-    'Build investor analytics panel',
-    'Deploy AI startup recommendation engine',
-    'Improve wallet transaction UI',
-    'Create token staking system',
-  ];
-
   const freelancers = [
     {
       name: 'Aryan Singh',
