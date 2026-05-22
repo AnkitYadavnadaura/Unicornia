@@ -20,6 +20,43 @@ export default function UnicorniaDashboard() {
   const [walletBalance, setWalletBalance] = useState(2840000);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [ ,setTaskFilter] = useState('All');
+  const [tasks, setTasks] = useState([
+  {
+    id: 1,
+    title: "Build investor analytics panel",
+    status: "In Progress",
+    priority: "High",
+    assignee: "AY",
+    due: "Today",
+  },
+  {
+    id: 2,
+    title: "Deploy AI startup recommendation engine",
+    status: "Pending",
+    priority: "Medium",
+    assignee: "RS",
+    due: "Tomorrow",
+  },
+  {
+    id: 3,
+    title: "Improve wallet transaction UI",
+    status: "Completed",
+    priority: "Low",
+    assignee: "AV",
+    due: "Completed",
+  },
+  {
+    id: 4,
+    title: "Create token staking system",
+    status: "In Progress",
+    priority: "High",
+    assignee: "AY",
+    due: "2 Days",
+  },
+]);
+
+const [taskFilter, setTaskFilter] = useState("All");
+const [newTask, setNewTask] = useState("");
 
   const sidebarItems = [
     'Dashboard',
