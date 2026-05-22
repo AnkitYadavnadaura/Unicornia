@@ -19,7 +19,6 @@ export default function UnicorniaDashboard() {
   //const [, setSelectedStartup] = useState('NeuroVerse');
   const [walletBalance, setWalletBalance] = useState(2840000);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [ ,setTaskFilter] = useState('All');
   const [tasks, setTasks] = useState([
   {
     id: 1,
@@ -57,6 +56,50 @@ export default function UnicorniaDashboard() {
 
 const [taskFilter, setTaskFilter] = useState("All");
 const [newTask, setNewTask] = useState("");
+
+
+const filteredTasks =
+  taskFilter === "All"
+    ? tasks
+    : tasks.filter((task) => task.status === taskFilter);
+
+const addTask = () => {
+  if (!newTask.trim()) return;
+
+  setTasks([
+    ...tasks,
+    {
+      id: Date.now(),
+      title: newTask,
+      status: "Pending",
+      priority: "Medium",
+      assignee: "AY",
+      due: "New",
+    },
+  ]);
+
+  setNewTask("");
+};
+
+const toggleTaskStatus = (id: number) => {
+  setTasks(
+    tasks.map((task) =>
+      task.id === id
+        ? {
+            ...task,
+            status:
+              task.status === "Completed"
+                ? "Pending"
+                : "Completed",
+          }
+        : task
+    )
+  );
+};
+
+const deleteTask = (id: number) => {
+  setTasks(tasks.filter((task) => task.id !== id));
+};
 
   const sidebarItems = [
     'Dashboard',
