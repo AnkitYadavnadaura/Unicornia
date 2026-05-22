@@ -133,19 +133,31 @@ const deleteTask = (id: number) => {
   const statsCards = [
   {
     title: "Team Members",
-    value: 248,
+    value: "248",
+    growth: "+12%",
+    icon: Users,
+    color: "from-blue-500 to-cyan-500",
   },
   {
-    title: "Tasks in pending",
-    value: 1482,
+    title: "Tasks Pending",
+    value: "1482",
+    growth: "+8%",
+    icon: Activity,
+    color: "from-orange-500 to-yellow-500",
   },
   {
-    title: "Tasks in Progress",
-    value: 326,
+    title: "Tasks In Progress",
+    value: "326",
+    growth: "+18%",
+    icon: Rocket,
+    color: "from-violet-500 to-pink-500",
   },
   {
     title: "Remaining Budget",
     value: "2.8M",
+    growth: "-4%",
+    icon: Wallet,
+    color: "from-green-500 to-emerald-500",
   },
 ];
 const teamMembers = [
@@ -292,12 +304,76 @@ const teamMembers = [
 <button className="px-5 py-3 rounded-2xl border border-white/20">Invite Team</button>
 </div>
 </div>
-{statsCards.map((card) => (
-<div key={card.title} className="bg-white rounded-3xl border border-gray-200 p-6 shadow-sm">
-<p className="text-gray-500 text-xs">{card.title}</p>
-<h2 className="text-lg font-semibold mt-4">{card.value}</h2>
-</div>
-))}
+<section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+
+  {statsCards.map((card) => {
+    const Icon = card.icon;
+
+    return (
+      <div
+        key={card.title}
+        className="relative overflow-hidden bg-white rounded-3xl border border-gray-200 p-6 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+      >
+
+        {/* Glow */}
+        <div
+          className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-br ${card.color} opacity-10 blur-3xl`}
+        />
+
+        {/* Header */}
+        <div className="flex items-start justify-between relative z-10">
+
+          <div>
+            <p className="text-sm text-gray-500">
+              {card.title}
+            </p>
+
+            <h2 className="text-4xl font-bold mt-4 tracking-tight">
+              {card.value}
+            </h2>
+          </div>
+
+          <div
+            className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${card.color} text-white flex items-center justify-center shadow-lg`}
+          >
+            <Icon className="w-6 h-6" />
+          </div>
+
+        </div>
+
+        {/* Footer */}
+        <div className="mt-6 flex items-center justify-between relative z-10">
+
+          <span
+            className={`text-sm font-semibold ${
+              card.growth.startsWith("+")
+                ? "text-green-600"
+                : "text-red-500"
+            }`}
+          >
+            {card.growth}
+          </span>
+
+          <p className="text-xs text-gray-400">
+            This week
+          </p>
+
+        </div>
+
+        {/* Progress */}
+        <div className="w-full h-2 bg-gray-100 rounded-full mt-4 overflow-hidden">
+          <div
+            className={`h-full rounded-full bg-gradient-to-r ${card.color}`}
+            style={{
+              width: `${Math.floor(Math.random() * 40) + 50}%`,
+            }}
+          />
+        </div>
+
+      </div>
+    );
+  })}
+</section>
 </section>
   {/* 
 <section className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
