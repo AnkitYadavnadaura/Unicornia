@@ -304,7 +304,9 @@ const teamMembers = [
 <button className="px-5 py-3 rounded-2xl border border-white/20">Invite Team</button>
 </div>
 </div>
-<section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+
+</section>
+  <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
 
   {statsCards.map((card) => {
     const Icon = card.icon;
@@ -373,7 +375,6 @@ const teamMembers = [
       </div>
     );
   })}
-</section>
 </section>
   {/* 
 <section className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
