@@ -458,27 +458,142 @@ const teamMembers = [
 
   </div>
 </section>
-<div className="bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
-<div className="flex items-center justify-between mb-6">
-<h2 className="text-lg font-semibold">Task Board</h2>
-<select
-onChange={(e)=>setTaskFilter(e.target.value)}
-className="px-4 py-2 rounded-xl border border-gray-200 bg-white"
->
-<option>All</option>
-<option>In Progress</option>
-<option>Completed</option>
-</select>
-</div>
-<div className="space-y-4">
-{tasks.map((task,i)=>(
-<div key={i} className="border border-gray-200 rounded-2xl p-5 flex justify-between items-center">
-<p>{task}</p>
-<button className="px-3 py-2 rounded-lg bg-yellow-100 text-yellow-700 text-xs">In Progress</button>
-</div>
-))}
-</div>
-</div>
+<section className="bg-white rounded-3xl border border-gray-200 shadow-sm overflow-hidden">
+
+  {/* Header */}
+  <div className="p-6 border-b border-gray-100 flex items-center justify-between sticky top-0 bg-white z-10">
+
+    <div>
+      <h2 className="text-xl font-semibold">
+        Task Board
+      </h2>
+
+      <p className="text-sm text-gray-500 mt-1">
+        Track startup execution workflow
+      </p>
+    </div>
+
+    <div className="flex items-center gap-3">
+
+      <select
+        value={taskFilter}
+        onChange={(e) => setTaskFilter(e.target.value)}
+        className="px-4 py-3 rounded-2xl border border-gray-200 outline-none"
+      >
+        <option>All</option>
+        <option>Pending</option>
+        <option>In Progress</option>
+        <option>Completed</option>
+      </select>
+
+    </div>
+  </div>
+
+  {/* Add Task */}
+  <div className="p-6 border-b border-gray-100 flex gap-3">
+
+    <input
+      value={newTask}
+      onChange={(e) => setNewTask(e.target.value)}
+      placeholder="Create new task..."
+      className="flex-1 px-5 py-3 rounded-2xl border border-gray-200 outline-none"
+    />
+
+    <button
+      onClick={addTask}
+      className="px-6 py-3 rounded-2xl bg-black text-white font-medium hover:scale-105 active:scale-95 transition-all"
+    >
+      Add Task
+    </button>
+
+  </div>
+
+  {/* Scrollable Tasks */}
+  <div className="max-h-[500px] overflow-y-auto p-6 space-y-4">
+
+    {filteredTasks.map((task) => (
+
+      <div
+        key={task.id}
+        className="group border border-gray-200 rounded-3xl p-5 hover:shadow-lg transition-all"
+      >
+
+        <div className="flex items-center justify-between gap-5">
+
+          {/* Left */}
+          <div className="flex items-center gap-4 flex-1">
+
+            <button
+              onClick={() => toggleTaskStatus(task.id)}
+              className={`w-6 h-6 rounded-full border-2 flex items-center justify-center transition-all ${
+                task.status === "Completed"
+                  ? "bg-black border-black text-white"
+                  : "border-gray-300"
+              }`}
+            >
+              {task.status === "Completed" && "✓"}
+            </button>
+
+            <div className="flex-1">
+
+              <h3
+                className={`font-medium text-base ${
+                  task.status === "Completed"
+                    ? "line-through text-gray-400"
+                    : ""
+                }`}
+              >
+                {task.title}
+              </h3>
+
+              <div className="flex items-center gap-3 mt-3 flex-wrap">
+
+                <span className="px-3 py-1 rounded-full bg-gray-100 text-xs font-medium">
+                  {task.priority}
+                </span>
+
+                <span
+                  className={`px-3 py-1 rounded-full text-xs font-medium ${
+                    task.status === "Completed"
+                      ? "bg-green-100 text-green-700"
+                      : task.status === "In Progress"
+                      ? "bg-yellow-100 text-yellow-700"
+                      : "bg-gray-100 text-gray-700"
+                  }`}
+                >
+                  {task.status}
+                </span>
+
+                <span className="px-3 py-1 rounded-full bg-blue-100 text-blue-700 text-xs font-medium">
+                  Due: {task.due}
+                </span>
+
+              </div>
+            </div>
+          </div>
+
+          {/* Right */}
+          <div className="flex items-center gap-4">
+
+            <div className="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center font-semibold">
+              {task.assignee}
+            </div>
+
+            <button
+              onClick={() => deleteTask(task.id)}
+              className="px-4 py-2 rounded-xl border border-red-200 text-red-600 hover:bg-red-50 transition-all"
+            >
+              Delete
+            </button>
+
+          </div>
+
+        </div>
+      </div>
+    ))}
+
+  </div>
+</section>
 </section>
 <section className="grid grid-cols-1 xl:grid-cols-3 gap-6">
 <div className="xl:col-span-2 bg-white rounded-2xl border border-gray-200 p-6 shadow-sm">
