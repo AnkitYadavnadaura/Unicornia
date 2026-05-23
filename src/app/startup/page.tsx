@@ -829,21 +829,182 @@ const teamMembers = [
 
   </div>
 </section>
-<div className="bg-gradient-to-br from-black to-gray-900 text-white rounded-2xl p-6 shadow-2xl">
-<p className="text-gray-400">Wallet Balance</p>
-<h2 className="text-3xl font-bold mt-5">{walletBalance.toLocaleString()}</h2>
-<p className="text-pink-400 mt-2">UNIC Tokens</p>
-<div className="mt-8 p-5 rounded-2xl bg-white/5 border border-white/10">
-<p className="text-xs text-gray-400">Monthly Spending</p>
-<h3 className="text-base font-semibold mt-2">420K Tokens</h3>
-<div className="w-full h-3 bg-white/10 rounded-full mt-4 overflow-hidden">
-<div className="w-[68%] h-full bg-gradient-to-r from-pink-500 to-violet-500 rounded-full"></div>
-</div>
-</div>
-<div className="space-y-4 mt-8">
-<button onClick={()=>setWalletBalance(walletBalance+50000)} className="w-full py-4 rounded-2xl bg-white text-black font-semibold">Buy Tokens</button>
-<button onClick={()=>setWalletBalance(walletBalance-10000)} className="w-full py-4 rounded-2xl border border-white/20">Send Tokens</button>
-</div>
+<div className="relative overflow-hidden bg-gradient-to-br from-[#050816] via-[#0A1024] to-[#111827] text-white rounded-[32px] p-7 shadow-2xl border border-white/10">
+
+  {/* Glow */}
+  <div className="absolute top-0 right-0 w-72 h-72 bg-pink-500/20 blur-3xl rounded-full" />
+  <div className="absolute bottom-0 left-0 w-72 h-72 bg-violet-500/20 blur-3xl rounded-full" />
+
+  {/* Header */}
+  <div className="relative z-10 flex items-start justify-between">
+
+    <div>
+      <p className="text-gray-400 text-sm">
+        Wallet Balance
+      </p>
+
+      <h2 className="text-5xl font-bold mt-5 tracking-tight">
+        {walletBalance.toLocaleString()}
+      </h2>
+
+      <p className="text-pink-400 mt-3 font-medium">
+        UNIC Tokens
+      </p>
+    </div>
+
+    <div className="px-4 py-2 rounded-2xl bg-green-500/10 text-green-400 text-sm font-semibold border border-green-500/20">
+      +18.4%
+    </div>
+
+  </div>
+
+  {/* Analytics */}
+  <div className="relative z-10 grid grid-cols-3 gap-4 mt-10">
+
+    <div className="rounded-2xl bg-white/5 border border-white/10 p-4">
+      <p className="text-xs text-gray-400">
+        Revenue
+      </p>
+
+      <h3 className="text-xl font-semibold mt-2">
+        820K
+      </h3>
+    </div>
+
+    <div className="rounded-2xl bg-white/5 border border-white/10 p-4">
+      <p className="text-xs text-gray-400">
+        Staked
+      </p>
+
+      <h3 className="text-xl font-semibold mt-2">
+        1.2M
+      </h3>
+    </div>
+
+    <div className="rounded-2xl bg-white/5 border border-white/10 p-4">
+      <p className="text-xs text-gray-400">
+        Expenses
+      </p>
+
+      <h3 className="text-xl font-semibold mt-2">
+        420K
+      </h3>
+    </div>
+
+  </div>
+
+  {/* Spending */}
+  <div className="relative z-10 mt-8 p-5 rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl">
+
+    <div className="flex items-center justify-between">
+      <p className="text-sm text-gray-400">
+        Monthly Spending
+      </p>
+
+      <p className="text-sm font-semibold">
+        68%
+      </p>
+    </div>
+
+    <h3 className="text-2xl font-bold mt-3">
+      420K Tokens
+    </h3>
+
+    <div className="w-full h-3 bg-white/10 rounded-full mt-6 overflow-hidden">
+      <div className="w-[68%] h-full rounded-full bg-gradient-to-r from-pink-500 via-violet-500 to-blue-500" />
+    </div>
+
+  </div>
+
+  {/* Actions */}
+  <div className="relative z-10 grid grid-cols-2 gap-4 mt-8">
+
+    <button
+      onClick={() => setWalletBalance(walletBalance + 50000)}
+      className="py-4 rounded-2xl bg-white text-black font-semibold hover:scale-[1.02] transition-all"
+    >
+      Buy Tokens
+    </button>
+
+    <button
+      onClick={() => setWalletBalance(walletBalance - 10000)}
+      className="py-4 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all"
+    >
+      Send Tokens
+    </button>
+
+    <button className="py-4 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all">
+      Stake
+    </button>
+
+    <button className="py-4 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all">
+      Withdraw
+    </button>
+
+  </div>
+
+  {/* Transactions */}
+  <div className="relative z-10 mt-10">
+
+    <div className="flex items-center justify-between mb-5">
+      <h3 className="font-semibold text-lg">
+        Recent Transactions
+      </h3>
+
+      <button className="text-sm text-pink-400">
+        View All
+      </button>
+    </div>
+
+    <div className="space-y-4">
+
+      {[
+        {
+          title: "Investor Allocation",
+          amount: "+120K",
+        },
+        {
+          title: "Team Salary Distribution",
+          amount: "-42K",
+        },
+        {
+          title: "Token Purchase",
+          amount: "+18K",
+        },
+      ].map((item) => (
+
+        <div
+          key={item.title}
+          className="flex items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/10"
+        >
+
+          <div>
+            <p className="font-medium">
+              {item.title}
+            </p>
+
+            <p className="text-xs text-gray-400 mt-1">
+              2 mins ago
+            </p>
+          </div>
+
+          <h3
+            className={`font-semibold ${
+              item.amount.startsWith("+")
+                ? "text-green-400"
+                : "text-red-400"
+            }`}
+          >
+            {item.amount}
+          </h3>
+
+        </div>
+      ))}
+
+    </div>
+
+  </div>
+
 </div>
 </section>
 </div>
