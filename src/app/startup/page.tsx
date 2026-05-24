@@ -303,6 +303,7 @@ const teamMembers = [
          
         <main className="flex-1 bg-[#F5F7FB] text-black overflow-y-auto">
           {activeTab === 'Dashboard' && (
+      <>
 <div className="h-16 bg-white border-b border-gray-200 px-6 flex items-center justify-between sticky top-0 z-50">
 <div>
 <h1 className="text-lg font-semibold">UNICORNIA</h1>
@@ -1011,7 +1012,7 @@ const teamMembers = [
 </div>
 </section>
 </div>
-           )}
+  </>         )}
 
           {activeTab === 'Startups' && (
     <StartupDiscoveryPage />
