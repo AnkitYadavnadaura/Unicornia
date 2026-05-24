@@ -1,6 +1,6 @@
 'use client'
 import { useState } from 'react';
-import StartupDiscoveryPage from '@/components/StartupHub';
+import StartupDiscoveryPage from '../../components/StartupHub';
 //import { motion } from 'framer-motion';
 import {
   Rocket,
