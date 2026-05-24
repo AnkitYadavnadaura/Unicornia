@@ -6,8 +6,6 @@ import {
   Rocket,
   Users,
   TrendingUp,
-  Globe,
-  Briefcase,
   Sparkles,
   Crown,
   MessageCircle,
