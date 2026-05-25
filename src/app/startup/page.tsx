@@ -114,7 +114,7 @@ const deleteTask = (id: number) => {
     'Tasks',
     'Marketplace',
     'Wallet',
-    'Funding,
+    'Funding',
     'Settings',
   ];
  
