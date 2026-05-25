@@ -327,112 +327,104 @@ export default function UnicorniaTasksPage() {
         ))}
       </div>
 
-      {/* Kanban Board */}
-      {/* =========================
-   PREMIUM TASK COLUMN CARD
-   Replace your old task card UI with this
+{/* =========================
+   HORIZONTAL PROFESSIONAL TASK ROWS
 ========================= */}
 
-<div className="grid xl:grid-cols-5 gap-6 mt-8 items-start">
-  {statuses.map((status) => (
-    <div
-      key={status}
-      className="relative rounded-[32px] border border-white/10 bg-[#0b1020] overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.35)]"
+<div className="mt-8 space-y-5">
+  {filteredTasks.map((task) => (
+    <button
+      key={task.id}
+      onClick={() => setSelectedTask(task)}
+      className="group w-full rounded-[32px] border border-white/10 bg-[#0b1020] overflow-hidden hover:border-fuchsia-500/30 hover:shadow-[0_20px_60px_rgba(168,85,247,0.18)] transition-all duration-300"
     >
-      {/* Glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.12),transparent_40%)]" />
-
-      {/* Header */}
-      <div className="relative z-10 flex items-center justify-between px-5 py-5 border-b border-white/5">
-        <div>
-          <div className="flex items-center gap-3">
-            <div
-              className={`w-3 h-3 rounded-full ${
-                status === "Completed"
-                  ? "bg-emerald-400"
-                  : status === "In Progress"
-                  ? "bg-cyan-400"
-                  : status === "Review"
-                  ? "bg-amber-400"
-                  : status === "Todo"
-                  ? "bg-violet-400"
-                  : "bg-slate-500"
-              }`}
-            />
-
-            <h3 className="text-white font-bold text-lg">
-              {status}
-            </h3>
-          </div>
-
-          <p className="text-xs text-white/35 mt-2">
-            {
-              filteredTasks.filter(
-                (task) => task.status === status
-              ).length
-            }{" "}
-            active tasks
-          </p>
-        </div>
-
-        <button className="w-11 h-11 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition">
-          <MoreHorizontal
-            size={16}
-            className="text-white/60"
+      <div className="flex flex-col xl:flex-row xl:items-center justify-between gap-6 p-6">
+        {/* LEFT */}
+        <div className="flex items-start gap-5 flex-1">
+          {/* Status line */}
+          <div
+            className={`w-2 self-stretch rounded-full ${
+              task.status === "Completed"
+                ? "bg-emerald-400"
+                : task.status === "In Progress"
+                ? "bg-cyan-400"
+                : task.status === "Review"
+                ? "bg-amber-400"
+                : task.status === "Todo"
+                ? "bg-violet-400"
+                : "bg-slate-500"
+            }`}
           />
-        </button>
-      </div>
 
-      {/* Cards */}
-      <div className="relative z-10 p-4 space-y-4 min-h-[750px]">
-        {filteredTasks
-          .filter((task) => task.status === status)
-          .map((task) => (
-            <button
-              key={task.id}
-              onClick={() => setSelectedTask(task)}
-              className="group w-full text-left rounded-[28px] bg-gradient-to-b from-white/[0.07] to-white/[0.03] border border-white/10 p-5 hover:border-fuchsia-500/40 hover:shadow-[0_20px_60px_rgba(168,85,247,0.18)] transition-all duration-300"
-            >
-              {/* Top */}
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <div
-                      className={`px-3 py-1 rounded-full text-[11px] font-semibold ${
-                        task.priority === "High"
-                          ? "bg-rose-500/15 text-rose-300 border border-rose-500/20"
-                          : task.priority === "Medium"
-                          ? "bg-amber-500/15 text-amber-300 border border-amber-500/20"
-                          : "bg-slate-500/15 text-slate-300 border border-slate-500/20"
-                      }`}
-                    >
-                      {task.priority}
-                    </div>
+          {/* Main Content */}
+          <div className="flex-1">
+            {/* Tags */}
+            <div className="flex flex-wrap items-center gap-3 mb-4">
+              <div
+                className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                  task.priority === "High"
+                    ? "bg-rose-500/15 text-rose-300 border border-rose-500/20"
+                    : task.priority === "Medium"
+                    ? "bg-amber-500/15 text-amber-300 border border-amber-500/20"
+                    : "bg-slate-500/15 text-slate-300 border border-slate-500/20"
+                }`}
+              >
+                {task.priority}
+              </div>
 
-                    <div className="px-3 py-1 rounded-full text-[11px] font-medium bg-white/5 border border-white/10 text-white/60">
-                      {task.due}
-                    </div>
-                  </div>
+              <div className="px-3 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-white/60">
+                {task.status}
+              </div>
 
-                  <h4 className="text-white text-xl leading-tight font-bold">
-                    {task.title}
-                  </h4>
+              <div className="px-3 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-white/60">
+                {task.due}
+              </div>
+            </div>
 
-                  <p className="text-white/45 text-sm leading-relaxed mt-3">
-                    {task.description}
-                  </p>
+            {/* Title */}
+            <div className="flex items-center gap-3">
+              <h3 className="text-2xl font-black text-white">
+                {task.title}
+              </h3>
+
+              <ArrowUpRight
+                size={18}
+                className="text-fuchsia-400 opacity-0 group-hover:opacity-100 transition"
+              />
+            </div>
+
+            {/* Description */}
+            <p className="text-white/45 leading-relaxed mt-3 max-w-3xl">
+              {task.description}
+            </p>
+
+            {/* Bottom */}
+            <div className="mt-6 flex flex-wrap items-center gap-6">
+              {/* Assignee */}
+              <div className="flex items-center gap-3">
+                <div className="relative">
+                  <img
+                    src={task.avatar}
+                    alt={task.assignee}
+                    className="w-12 h-12 rounded-2xl object-cover border border-white/10"
+                  />
+
+                  <div className="absolute -bottom-1 -right-1 w-3 h-3 rounded-full bg-emerald-400 border-2 border-[#0b1020]" />
                 </div>
 
-                <div className="opacity-0 group-hover:opacity-100 transition">
-                  <ArrowUpRight
-                    size={18}
-                    className="text-fuchsia-400"
-                  />
+                <div>
+                  <p className="text-white font-semibold text-sm">
+                    {task.assignee}
+                  </p>
+
+                  <p className="text-white/35 text-xs">
+                    Assigned Member
+                  </p>
                 </div>
               </div>
 
               {/* Progress */}
-              <div className="mt-6">
+              <div className="flex-1 min-w-[250px]">
                 <div className="flex justify-between text-xs text-white/35 mb-2">
                   <span>Progress</span>
                   <span>{task.progress}%</span>
@@ -447,91 +439,56 @@ export default function UnicorniaTasksPage() {
                   />
                 </div>
               </div>
-
-              {/* Bottom */}
-              <div className="mt-6 flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="relative">
-                    <img
-                      src={task.avatar}
-                      alt={task.assignee}
-                      className="w-12 h-12 rounded-2xl object-cover border border-white/10"
-                    />
-
-                    <div className="absolute -bottom-1 -right-1 w-3 h-3 rounded-full bg-emerald-400 border-2 border-[#0b1020]" />
-                  </div>
-
-                  <div>
-                    <p className="text-white font-semibold text-sm">
-                      {task.assignee}
-                    </p>
-
-                    <p className="text-white/35 text-xs mt-1">
-                      Assigned member
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <button className="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition">
-                    <MessageSquare
-                      size={15}
-                      className="text-white/60"
-                    />
-                  </button>
-
-                  <button className="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition">
-                    <Users
-                      size={15}
-                      className="text-white/60"
-                    />
-                  </button>
-                </div>
-              </div>
-
-              {/* Footer AI */}
-              <div className="mt-5 rounded-2xl bg-gradient-to-r from-fuchsia-500/10 to-cyan-500/10 border border-white/10 p-3">
-                <div className="flex items-center gap-2 text-xs text-white/70">
-                  <Sparkles
-                    size={13}
-                    className="text-cyan-400"
-                  />
-                  AI predicts completion in 2 days
-                </div>
-              </div>
-            </button>
-          ))}
-
-        {/* Empty state */}
-        {filteredTasks.filter(
-          (task) => task.status === status
-        ).length === 0 && (
-          <div className="rounded-[28px] border border-dashed border-white/10 bg-white/[0.02] p-8 flex flex-col items-center justify-center text-center min-h-[220px]">
-            <div className="w-16 h-16 rounded-3xl bg-white/5 flex items-center justify-center mb-4">
-              <Plus
-                size={24}
-                className="text-white/30"
-              />
             </div>
-
-            <h4 className="text-white/70 font-semibold">
-              No tasks yet
-            </h4>
-
-            <p className="text-white/30 text-sm mt-2">
-              Create or move tasks here
-            </p>
-
-            <button className="mt-5 px-5 py-3 rounded-2xl bg-white/5 border border-white/10 text-white/70 hover:bg-white/10 transition">
-              Add Task
-            </button>
           </div>
-        )}
+        </div>
+
+        {/* RIGHT */}
+        <div className="flex items-center gap-3">
+          <button className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition">
+            <MessageSquare
+              size={16}
+              className="text-white/60"
+            />
+          </button>
+
+          <button className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition">
+            <Users
+              size={16}
+              className="text-white/60"
+            />
+          </button>
+
+          <button className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition">
+            <MoreHorizontal
+              size={16}
+              className="text-white/60"
+            />
+          </button>
+        </div>
       </div>
-    </div>
+
+      {/* AI Footer */}
+      <div className="border-t border-white/5 px-6 py-4 bg-gradient-to-r from-fuchsia-500/5 via-violet-500/5 to-cyan-500/5">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2 text-sm text-white/70">
+            <Sparkles
+              size={14}
+              className="text-cyan-400"
+            />
+            AI predicts this task will finish 32% faster with 1 more collaborator
+          </div>
+
+          <div className="flex items-center gap-5 text-xs text-white/35">
+            <span>Updated 2h ago</span>
+            <span>Sprint 04</span>
+            <span>Unicornia AI Workflow</span>
+          </div>
+        </div>
+      </div>
+    </button>
   ))}
 </div>
-
       {/* Overlay */}
       {selectedTask && (
         <div className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xl flex items-center justify-center p-4 md:p-6">
