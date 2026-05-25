@@ -327,7 +327,13 @@ export default function UnicorniaMarketplace() {
       </div>
 
       {/* LISTING UI */}
-      <div className="mt-8 space-y-5">
+     <div
+  className={
+    layout === "grid"
+      ? "mt-8 grid md:grid-cols-2 xl:grid-cols-3 gap-5"
+      : "mt-8 space-y-5"
+  }
+>
         {filteredItems.map((item) => (
           <div
             key={item.id}
@@ -365,7 +371,7 @@ export default function UnicorniaMarketplace() {
       <CheckCircle2 size={12} />
       Verified
     </div>
-  );
+  )
 }
                   </div>
 
