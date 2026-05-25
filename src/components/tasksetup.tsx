@@ -531,38 +531,6 @@ export default function UnicorniaTasksPage() {
     </div>
   ))}
 </div>
-{/* 
-                    {/* Footer */}
-                    <div className="mt-5 flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <img
-                          src={task.avatar}
-                          alt={task.assignee}
-                          className="w-10 h-10 rounded-2xl object-cover"
-                        />
-
-                        <div>
-                          <p className="text-sm font-semibold text-slate-900">
-                            {task.assignee}
-                          </p>
-
-                          <p className="text-xs text-slate-400">
-                            Assigned
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="flex items-center gap-2 text-slate-400">
-                        <MessageSquare size={15} />
-                        <Users size={15} />
-                      </div>
-                    </div>
-                  </button>
-                ))}
-            </div>
-          </div>
-        ))}
-      </div> */}
 
       {/* Overlay */}
       {selectedTask && (
