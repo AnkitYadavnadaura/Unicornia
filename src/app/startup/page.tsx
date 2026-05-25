@@ -5,6 +5,7 @@ import TeamSection from '../../components/teamsetup';
 import UnicorniaTasksPage from '../../components/tasksetup';
 import UnicorniaMarketplace from '../../components/marketplace';
 import UnicorniaWallet from '../../components/walletsetup';
+import UnicorniaFundingDashboard from '../../components/fundingsetup';
 //import { motion } from 'framer-motion';
 import {
   Rocket,
@@ -113,7 +114,7 @@ const deleteTask = (id: number) => {
     'Tasks',
     'Marketplace',
     'Wallet',
-    'Analytics',
+    'Funding,
     'Settings',
   ];
  
@@ -1033,6 +1034,10 @@ const teamMembers = [
            {activeTab === 'Wallet' && (
      <UnicorniaWallet/>
   )}
+             {activeTab === 'funding' && (
+     <UnicorniaFundingDashboard/>
+  )}
+          
           
           
 </main>
