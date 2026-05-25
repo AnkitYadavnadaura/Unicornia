@@ -20,7 +20,6 @@ import {
   ExternalLink,
   CheckCircle2,
   TrendingUp,
-  ShieldCheck,
   Plus,
   Heart,
 } from "lucide-react";
