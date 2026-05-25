@@ -4,7 +4,6 @@ import React, { useMemo, useState } from "react";
 import {
   Search,
   Plus,
-  CalendarDays,
   Clock3,
   Sparkles,
   CheckCircle2,
