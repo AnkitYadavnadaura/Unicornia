@@ -8,6 +8,7 @@ import {
   Check,
   ChevronRight,
   CreditCard,
+  Briefcase,
   Crown,
   Database,
   Globe,
