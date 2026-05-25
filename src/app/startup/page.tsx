@@ -4,6 +4,7 @@ import StartupDiscoveryPage from '../../components/startuphub';
 import TeamSection from '../../components/teamsetup';
 import UnicorniaTasksPage from '../../components/tasksetup';
 import UnicorniaMarketplace from '../../components/marketplace';
+import UnicorniaWallet from '../../components/walletsetup';
 //import { motion } from 'framer-motion';
 import {
   Rocket,
@@ -1029,6 +1030,10 @@ const teamMembers = [
            {activeTab === 'Marketplace' && (
      <UnicorniaMarketplace/>
   )}
+           {activeTab === 'Wallet' && (
+     <UnicorniaWallet/>
+  )}
+          
           
 </main>
      
