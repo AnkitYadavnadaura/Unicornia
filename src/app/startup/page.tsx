@@ -6,6 +6,7 @@ import UnicorniaTasksPage from '../../components/tasksetup';
 import UnicorniaMarketplace from '../../components/marketplace';
 import UnicorniaWallet from '../../components/walletsetup';
 import FundingDashboard from '../../components/fundingsetup1';
+import SettingsPage from '../../components/settingsetup';
 //import { motion } from 'framer-motion';
 import {
   Rocket,
@@ -1037,6 +1038,10 @@ const teamMembers = [
              {activeTab === 'Funding' && (
      <FundingDashboard/>
   )}
+                {activeTab === 'Funding' && (
+     <SettingsPage/>
+  )}
+          
           
           
           
