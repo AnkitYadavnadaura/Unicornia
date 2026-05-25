@@ -1022,7 +1022,6 @@ const teamMembers = [
            {activeTab === 'Team' && (
      <TeamSection />
   )}
-          UnicorniaTasksPage
  {activeTab === 'Tasks' && (
      <UnicorniaTasksPage/>
   )}
