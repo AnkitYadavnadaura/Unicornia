@@ -1034,7 +1034,7 @@ const teamMembers = [
            {activeTab === 'Wallet' && (
      <UnicorniaWallet/>
   )}
-             {activeTab === 'funding' && (
+             {activeTab === 'Funding' && (
      <UnicorniaFundingDashboard/>
   )}
           
