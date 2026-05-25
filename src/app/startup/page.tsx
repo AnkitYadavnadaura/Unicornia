@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import StartupDiscoveryPage from '../../components/startuphub';
 import TeamSection from '../../components/teamsetup';
+import UnicorniaTasksPage from '../../components/tasksetup';
 //import { motion } from 'framer-motion';
 import {
   Rocket,
