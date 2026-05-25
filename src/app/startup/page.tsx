@@ -3,6 +3,7 @@ import { useState } from 'react';
 import StartupDiscoveryPage from '../../components/startuphub';
 import TeamSection from '../../components/teamsetup';
 import UnicorniaTasksPage from '../../components/tasksetup';
+import UnicorniaMarketplace from '../../components/marketplace';
 //import { motion } from 'framer-motion';
 import {
   Rocket,
@@ -1025,6 +1026,10 @@ const teamMembers = [
  {activeTab === 'Tasks' && (
      <UnicorniaTasksPage/>
   )}
+           {activeTab === 'Tasks' && (
+     <UnicorniaMarketplace/>
+  )}
+          
 </main>
      
       </div>
