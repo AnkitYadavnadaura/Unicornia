@@ -1026,7 +1026,7 @@ const teamMembers = [
  {activeTab === 'Tasks' && (
      <UnicorniaTasksPage/>
   )}
-           {activeTab === 'MarketPlace' && (
+           {activeTab === 'Marketplace' && (
      <UnicorniaMarketplace/>
   )}
           
