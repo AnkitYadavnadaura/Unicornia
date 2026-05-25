@@ -248,6 +248,37 @@ export default function UnicorniaMarketplace() {
               className="w-full h-16 rounded-2xl bg-white/5 border border-white/10 pl-14 pr-5 text-white placeholder:text-white/30 outline-none focus:border-fuchsia-500/40"
             />
           </div>
+          <div className="flex flex-wrap items-center gap-3 mt-5">
+  {/* Filter */}
+  <button className="h-12 px-5 rounded-2xl bg-white/5 border border-white/10 text-white/70 hover:bg-white/10 transition flex items-center gap-2">
+    <Filter size={16} />
+    Filters
+  </button>
+
+  {/* Saved */}
+  <button className="h-12 px-5 rounded-2xl bg-white/5 border border-white/10 text-white/70 hover:bg-white/10 transition flex items-center gap-2">
+    <Bookmark size={16} />
+    Saved Items
+  </button>
+
+  {/* HR */}
+  <button className="h-12 px-5 rounded-2xl bg-fuchsia-500/10 border border-fuchsia-500/20 text-fuchsia-300 flex items-center gap-2">
+    <Briefcase size={16} />
+    Hiring
+  </button>
+
+  {/* Products */}
+  <button className="h-12 px-5 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 flex items-center gap-2">
+    <ShoppingBag size={16} />
+    Products
+  </button>
+
+  {/* AI */}
+  <button className="h-12 px-5 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 flex items-center gap-2">
+    <Brain size={16} />
+    AI Models
+  </button>
+</div>
 
           {/* Categories */}
           <div className="flex flex-wrap gap-3">
@@ -328,12 +359,14 @@ export default function UnicorniaMarketplace() {
                       {item.category}
                     </div>
 
-                    {item.verified && (
-                      <div className="flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-300">
-                        <ShieldCheck size={12} />
-                        Verified
-                      </div>
-                    )}
+                    {
+  item.verified && (
+    <div className="flex items-center gap-1 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs text-emerald-300">
+      <CheckCircle2 size={12} />
+      Verified
+    </div>
+  );
+}
                   </div>
 
                   {/* TITLE */}
