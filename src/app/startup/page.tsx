@@ -1038,7 +1038,7 @@ const teamMembers = [
              {activeTab === 'Funding' && (
      <FundingDashboard/>
   )}
-                {activeTab === 'Funding' && (
+                {activeTab === 'Settings' && (
      <SettingsPage/>
   )}
           
