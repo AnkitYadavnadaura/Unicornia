@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react';
 import StartupDiscoveryPage from '../../components/startuphub';
+import TeamSection from '../../components/teamsetup';
 //import { motion } from 'framer-motion';
 import {
   Rocket,
@@ -1016,6 +1017,9 @@ const teamMembers = [
 
           {activeTab === 'Startups' && (
     <StartupDiscoveryPage />
+  )}
+           {activeTab === 'Team' && (
+     <TeamSection />
   )}
 
 </main>
