@@ -133,7 +133,7 @@ export async function login(formData: FormData) {
     })
 
   if (error) {
-    throw new Error(error.message) profileError.message
+    throw new Error(error.message)
   }
 
   const user = data.user
