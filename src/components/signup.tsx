@@ -91,6 +91,7 @@ export default function SignUpOverlay({ close }: LoginOverlayProps) {
 >
               <div className="space-y-5">
                 <input
+                  name="fullName"
                   type="text"
                   placeholder="Enter your Name"
                   className="w-full px-6 py-5 rounded-2xl bg-white/5 border border-white/10 focus:outline-none focus:border-pink-500 text-lg"
@@ -98,11 +99,13 @@ export default function SignUpOverlay({ close }: LoginOverlayProps) {
                 {selectedRole === 'startup' && (
           <>
           <input
+            name="startupName"
                   type="text"
                   placeholder="Startup Name"
                   className="w-full px-6 py-5 rounded-2xl bg-white/5 border border-white/10 focus:outline-none focus:border-pink-500 text-lg"
                 />
                   <input
+                    name="teamSize"
                   type="text"
                   placeholder="current Team Size"
                   className="w-full px-6 py-5 rounded-2xl bg-white/5 border border-white/10 focus:outline-none focus:border-pink-500 text-lg"
@@ -112,12 +115,14 @@ export default function SignUpOverlay({ close }: LoginOverlayProps) {
                 )}
 
                 <input
+                  name="email"
                   type="email"
                   placeholder="Enter your email"
                   className="w-full px-6 py-5 rounded-2xl bg-white/5 border border-white/10 focus:outline-none focus:border-pink-500 text-lg"
                 />
 
                 <input
+                  name="password"
                   type="password"
                   placeholder="Enter password"
                   className="w-full px-6 py-5 rounded-2xl bg-white/5 border border-white/10 focus:outline-none focus:border-cyan-500 text-lg"
@@ -130,7 +135,7 @@ export default function SignUpOverlay({ close }: LoginOverlayProps) {
                   </label>
 
                   <button className="hover:text-pink-400 transition">
-                    login
+                    Already Have Account?
                   </button>
                 </div>
 
