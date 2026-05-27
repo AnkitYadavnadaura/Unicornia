@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import {
+  signupStartup,
+  signupIndividual,
+} from '../app/auth/actions'
 type LoginOverlayProps = {
   close: () => void;
 };
