@@ -82,6 +82,13 @@ export default function SignUpOverlay({ close }: LoginOverlayProps) {
               </div>
 
               {/* Form */}
+              <form
+  action={
+    selectedRole === 'startup'
+      ? signupStartup
+      : signupIndividual
+  }
+>
               <div className="space-y-5">
                 <input
                   type="text"
@@ -131,7 +138,7 @@ export default function SignUpOverlay({ close }: LoginOverlayProps) {
                   Enter Unicornia
                 </button>
               </div>
-
+              </form>
             </div>
           </div>
         </div>
