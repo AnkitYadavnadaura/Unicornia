@@ -1,24 +1,24 @@
 'use server'
 
 import { redirect } from 'next/navigation'
-import { createClient } from '../lib/server'
+import { createClient } from '@/lib/supabase/server'
 
-export async function signup(formData: FormData) {
+/* =========================================================
+   STARTUP SIGNUP
+========================================================= */
+
+export async function signupStartup(formData: FormData) {
   const supabase = await createClient()
 
+  const fullName = formData.get('fullName') as string
+  const startupName = formData.get('startupName') as string
   const email = formData.get('email') as string
   const password = formData.get('password') as string
-  const username = formData.get('username') as string
 
+  // Create auth user
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
-    options: {
-      data: {
-        username,
-        role: 'founder',
-      },
-    },
   })
 
   if (error) {
@@ -27,19 +27,111 @@ export async function signup(formData: FormData) {
     }
   }
 
-  if (data.user) {
-    await supabase.from('profiles').insert({
-      id: data.user.id,
-      username,
-      role: 'founder',
-      reputation: 0,
-      level: 1,
-      xp: 0,
-    })
+  const user = data.user
+
+  if (!user) {
+    return {
+      error: 'User not created',
+    }
   }
 
-  redirect('/dashboard')
+  // Create profile
+  const { error: profileError } = await supabase
+    .from('profiles')
+    .insert({
+      id: user.id,
+      full_name: fullName,
+      role: 'startup',
+    })
+
+  if (profileError) {
+    return {
+      error: profileError.message,
+    }
+  }
+
+  // Create startup
+  const { data: startup, error: startupError } = await supabase
+    .from('startups')
+    .insert({
+      founder_id: user.id,
+      startup_name: startupName,
+    })
+    .select()
+    .single()
+
+  if (startupError) {
+    return {
+      error: startupError.message,
+    }
+  }
+
+  // Add founder as startup member
+  await supabase
+    .from('startup_members')
+    .insert({
+      startup_id: startup.id,
+      user_id: user.id,
+      role: 'Founder',
+    })
+
+  redirect('/startup/dashboard')
 }
+
+/* =========================================================
+   INDIVIDUAL SIGNUP
+========================================================= */
+
+export async function signupIndividual(formData: FormData) {
+  const supabase = await createClient()
+
+  const fullName = formData.get('fullName') as string
+  const email = formData.get('email') as string
+  const password = formData.get('password') as string
+
+  // Create auth user
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+  })
+
+  if (error) {
+    return {
+      error: error.message,
+    }
+  }
+
+  const user = data.user
+
+  if (!user) {
+    return {
+      error: 'User not created',
+    }
+  }
+
+  // Create profile
+  const { error: profileError } = await supabase
+    .from('profiles')
+    .insert({
+      id: user.id,
+      full_name: fullName,
+      role: 'individual',
+      xp: 0,
+      level: 1,
+    })
+
+  if (profileError) {
+    return {
+      error: profileError.message,
+    }
+  }
+
+  redirect('/individual/dashboard')
+}
+
+/* =========================================================
+   LOGIN
+========================================================= */
 
 export async function login(formData: FormData) {
   const supabase = await createClient()
@@ -47,10 +139,11 @@ export async function login(formData: FormData) {
   const email = formData.get('email') as string
   const password = formData.get('password') as string
 
-  const { error } = await supabase.auth.signInWithPassword({
-    email,
-    password,
-  })
+  const { data, error } =
+    await supabase.auth.signInWithPassword({
+      email,
+      password,
+    })
 
   if (error) {
     return {
@@ -58,4 +151,35 @@ export async function login(formData: FormData) {
     }
   }
 
+  const user = data.user
+
+  // Get profile
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('id', user.id)
+    .single()
+
+  // Redirect based on role
+  if (profile.role === 'startup') {
+    redirect('/startup/dashboard')
+  }
+
+  if (profile.role === 'individual') {
+    redirect('/individual/dashboard')
+  }
+
+  redirect('/')
+}
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+export async function logout() {
+  const supabase = await createClient()
+
+  await supabase.auth.signOut()
+
+  redirect('/login')
 }
