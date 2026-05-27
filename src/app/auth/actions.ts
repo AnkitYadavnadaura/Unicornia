@@ -22,17 +22,13 @@ export async function signupStartup(formData: FormData) {
   })
 
   if (error) {
-    return {
-      error: error.message,
-    }
+     throw new Error(error.message)
   }
 
   const user = data.user
 
   if (!user) {
-    return {
-      error: 'User not created',
-    }
+     throw new Error("user not created")
   }
 
   // Create profile
@@ -45,9 +41,8 @@ export async function signupStartup(formData: FormData) {
     })
 
   if (profileError) {
-    return {
-      error: profileError.message,
-    }
+    throw new Error(profileError.message)
+    
   }
 
   // Create startup
@@ -61,9 +56,7 @@ export async function signupStartup(formData: FormData) {
     .single()
 
   if (startupError) {
-    return {
-      error: startupError.message,
-    }
+       throw new Error(startupError.message)
   }
 
   // Add founder as startup member
@@ -96,17 +89,13 @@ export async function signupIndividual(formData: FormData) {
   })
 
   if (error) {
-    return {
-      error: error.message,
-    }
+     throw new Error(error.message)
   }
 
   const user = data.user
 
   if (!user) {
-    return {
-      error: 'User not created',
-    }
+     throw new Error("user not created")
   }
 
   // Create profile
@@ -121,9 +110,7 @@ export async function signupIndividual(formData: FormData) {
     })
 
   if (profileError) {
-    return {
-      error: profileError.message,
-    }
+    throw new Error(profileError.message)
   }
 
   redirect('/individual/dashboard')
@@ -146,9 +133,7 @@ export async function login(formData: FormData) {
     })
 
   if (error) {
-    return {
-      error: error.message,
-    }
+    throw new Error(error.message) profileError.message
   }
 
   const user = data.user
