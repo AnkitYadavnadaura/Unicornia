@@ -37,8 +37,7 @@ export default function KanbanBoard() {
 
   const moveTask = (
     task: Task,
-    from: 'todo' | 'progress',
-    to: 'progress' | 'done'
+    from: 'todo' | 'progress'
   ) => {
     if (from === 'todo') {
       setTodo(todo.filter((t) => t.id !== task.id))
