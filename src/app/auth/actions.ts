@@ -68,7 +68,7 @@ export async function signupStartup(formData: FormData) {
       role: 'Founder',
     })
 
-  redirect('/startup/dashboard')
+  redirect('/startup')
 }
 
 /* =========================================================
@@ -113,7 +113,7 @@ export async function signupIndividual(formData: FormData) {
     throw new Error(profileError.message)
   }
 
-  redirect('/individual/dashboard')
+  redirect('/individual')
 }
 
 /* =========================================================
@@ -147,11 +147,11 @@ export async function login(formData: FormData) {
 
   // Redirect based on role
   if (profile.role === 'startup') {
-    redirect('/startup/dashboard')
+    redirect('/startup')
   }
 
   if (profile.role === 'individual') {
-    redirect('/individual/dashboard')
+    redirect('/individual')
   }
 
   redirect('/')
@@ -166,5 +166,5 @@ export async function logout() {
 
   await supabase.auth.signOut()
 
-  redirect('/login')
+  redirect('/')
 }
