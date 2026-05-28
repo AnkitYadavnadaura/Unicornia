@@ -10,7 +10,7 @@ import {
   Star,
   Flame,
   CheckCircle2,
-  Wallet,
+  // Wallet,
   Settings,
   Crown,
 } from 'lucide-react'
