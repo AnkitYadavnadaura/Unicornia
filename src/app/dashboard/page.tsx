@@ -1,306 +1,363 @@
 'use client'
 
 import {
-  Coins,
-  Trophy,
+  LayoutDashboard,
   Briefcase,
-  Star,
-  Flame,
+  Trophy,
+  Coins,
   Bell,
   Search,
-  ArrowUpRight,
-  Users,
-  Sparkles,
+  Star,
+  Flame,
+  CheckCircle2,
+  Wallet,
+  Settings,
+  Crown,
 } from 'lucide-react'
 
 export default function IndividualDashboard() {
   const tasks = [
     {
-      title: 'Build Landing Page UI',
+      title: 'Build AI Landing Page',
       startup: 'NeuroStack',
       reward: 500,
       status: 'In Progress',
     },
     {
-      title: 'Create Logo Design',
+      title: 'Design Investor Deck',
       startup: 'Finovate',
       reward: 300,
       status: 'Pending',
     },
     {
-      title: 'Fix Backend APIs',
-      startup: 'AI Nexus',
-      reward: 700,
+      title: 'Create Next.js Dashboard',
+      startup: 'Aether AI',
+      reward: 800,
       status: 'Completed',
     },
   ]
 
   return (
-    <div className="min-h-screen bg-[#050816] text-white overflow-hidden">
-      
-      {/* Background Glow */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-pink-500/20 blur-[120px] rounded-full"></div>
-        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-cyan-500/20 blur-[120px] rounded-full"></div>
-      </div>
+    <div className="flex min-h-screen bg-[#f5f7fb]">
 
-      {/* Navbar */}
-      <header className="relative z-10 border-b border-white/10 bg-white/5 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-          
-          <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-r from-pink-500 to-violet-500 flex items-center justify-center text-2xl font-black shadow-lg shadow-pink-500/30">
-              U
-            </div>
+      {/* SIDEBAR */}
+      <aside className="w-[260px] bg-[#081120] text-white p-5 flex flex-col justify-between">
 
+        <div>
+
+          <div className="flex items-center justify-between mb-10">
             <div>
               <h1 className="text-2xl font-black">
-                Unicornia
+                UNICORNIA
               </h1>
 
-              <p className="text-sm text-white/50">
-                Individual Dashboard
+              <p className="text-white/50 text-sm">
+                Individual Workspace
               </p>
             </div>
+          </div>
+
+          <div className="space-y-4">
+
+            <button className="w-full flex items-center gap-4 rounded-2xl bg-gradient-to-r from-pink-500 to-violet-500 px-5 py-4 font-semibold">
+              <LayoutDashboard size={20} />
+              Dashboard
+            </button>
+
+            <button className="w-full flex items-center gap-4 rounded-2xl bg-white/5 border border-white/10 px-5 py-4">
+              <Briefcase size={20} />
+              Opportunities
+            </button>
+
+            <button className="w-full flex items-center gap-4 rounded-2xl bg-white/5 border border-white/10 px-5 py-4">
+              <CheckCircle2 size={20} />
+              Tasks
+            </button>
+
+            <button className="w-full flex items-center gap-4 rounded-2xl bg-white/5 border border-white/10 px-5 py-4">
+              <Coins size={20} />
+              Wallet
+            </button>
+
+            <button className="w-full flex items-center gap-4 rounded-2xl bg-white/5 border border-white/10 px-5 py-4">
+              <Trophy size={20} />
+              Leaderboard
+            </button>
+
+            <button className="w-full flex items-center gap-4 rounded-2xl bg-white/5 border border-white/10 px-5 py-4">
+              <Settings size={20} />
+              Settings
+            </button>
+
+          </div>
+        </div>
+
+        {/* Rank Card */}
+        <div className="rounded-3xl bg-gradient-to-br from-pink-500/20 to-violet-500/20 border border-pink-500/20 p-6">
+
+          <div className="flex items-center gap-3 mb-5">
+            <Crown className="text-yellow-400" />
+            <h3 className="font-bold">
+              Builder Rank
+            </h3>
+          </div>
+
+          <h2 className="text-5xl font-black">
+            #12
+          </h2>
+
+          <p className="text-white/60 mt-4">
+            Top contributors in Unicornia ecosystem
+          </p>
+        </div>
+
+      </aside>
+
+      {/* MAIN */}
+      <main className="flex-1 p-6">
+
+        {/* NAVBAR */}
+        <div className="bg-white rounded-[30px] p-5 flex items-center justify-between shadow-sm">
+
+          <div>
+            <h2 className="text-2xl font-black">
+              Welcome back, Ankit 👋
+            </h2>
+
+            <p className="text-gray-500 mt-1">
+              Your contribution ecosystem is growing rapidly.
+            </p>
           </div>
 
           <div className="flex items-center gap-4">
-            <button className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition">
-              <Bell size={20} />
+
+            <div className="flex items-center gap-3 bg-[#f5f7fb] px-5 py-3 rounded-2xl w-[320px]">
+              <Search size={18} className="text-gray-400" />
+
+              <input
+                placeholder="Search opportunities..."
+                className="bg-transparent outline-none w-full"
+              />
+            </div>
+
+            <button className="w-14 h-14 rounded-2xl bg-[#f5f7fb] flex items-center justify-center">
+              <Bell />
             </button>
 
-            <div className="flex items-center gap-3 rounded-2xl bg-white/5 border border-white/10 px-4 py-2">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-500"></div>
+            <button className="rounded-2xl bg-black text-white px-6 py-4 font-semibold">
+              Explore Tasks
+            </button>
 
-              <div>
-                <p className="font-semibold">
-                  Ankit
-                </p>
-
-                <p className="text-xs text-white/50">
-                  Full Stack Builder
-                </p>
-              </div>
-            </div>
           </div>
-
         </div>
-      </header>
 
-      {/* Main */}
-      <main className="relative z-10 max-w-7xl mx-auto px-6 py-10">
+        {/* STATS */}
+        <div className="grid grid-cols-4 gap-6 mt-8">
 
-        {/* Hero */}
-        <div className="rounded-[40px] border border-white/10 bg-white/5 backdrop-blur-2xl p-10 overflow-hidden relative">
-          
-          <div className="absolute top-0 right-0 w-72 h-72 bg-pink-500/20 blur-[100px] rounded-full"></div>
-
-          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
-            
-            <div>
-              <div className="inline-flex items-center gap-2 rounded-full bg-pink-500/20 border border-pink-500/30 px-5 py-2 text-pink-300 text-sm font-semibold mb-6">
-                <Sparkles size={16} />
-                Top 5% Contributor
-              </div>
-
-              <h2 className="text-5xl md:text-6xl font-black leading-tight">
-                Welcome back,
-                <span className="block bg-gradient-to-r from-pink-500 via-violet-500 to-cyan-500 bg-clip-text text-transparent">
-                  Ankit
-                </span>
-              </h2>
-
-              <p className="text-white/60 text-lg mt-6 max-w-2xl">
-                Complete startup tasks, earn XP, collect Unicorn Tokens,
-                and build your reputation inside the ecosystem.
-              </p>
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-2 gap-5 w-full max-w-md">
-
-              <div className="rounded-3xl bg-black/30 border border-white/10 p-6">
-                <Coins className="text-yellow-400 mb-4" size={30} />
-
-                <h3 className="text-3xl font-black">
-                  12,450
-                </h3>
-
-                <p className="text-white/50 mt-2">
+          <div className="bg-white rounded-[30px] p-6 shadow-sm">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-gray-500">
                   Tokens Earned
                 </p>
+
+                <h2 className="text-5xl font-black mt-3">
+                  12K
+                </h2>
               </div>
 
-              <div className="rounded-3xl bg-black/30 border border-white/10 p-6">
-                <Trophy className="text-cyan-400 mb-4" size={30} />
-
-                <h3 className="text-3xl font-black">
-                  Level 14
-                </h3>
-
-                <p className="text-white/50 mt-2">
-                  Reputation Level
-                </p>
+              <div className="w-16 h-16 rounded-2xl bg-yellow-100 flex items-center justify-center">
+                <Coins className="text-yellow-500" />
               </div>
+            </div>
 
-              <div className="rounded-3xl bg-black/30 border border-white/10 p-6">
-                <Flame className="text-pink-400 mb-4" size={30} />
-
-                <h3 className="text-3xl font-black">
-                  89
-                </h3>
-
-                <p className="text-white/50 mt-2">
-                  Tasks Completed
-                </p>
-              </div>
-
-              <div className="rounded-3xl bg-black/30 border border-white/10 p-6">
-                <Users className="text-violet-400 mb-4" size={30} />
-
-                <h3 className="text-3xl font-black">
-                  24
-                </h3>
-
-                <p className="text-white/50 mt-2">
-                  Startup Connections
-                </p>
-              </div>
-
+            <div className="mt-8 h-2 rounded-full bg-gray-100 overflow-hidden">
+              <div className="w-[75%] h-full bg-yellow-500 rounded-full"></div>
             </div>
           </div>
+
+          <div className="bg-white rounded-[30px] p-6 shadow-sm">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-gray-500">
+                  XP Level
+                </p>
+
+                <h2 className="text-5xl font-black mt-3">
+                  14
+                </h2>
+              </div>
+
+              <div className="w-16 h-16 rounded-2xl bg-pink-100 flex items-center justify-center">
+                <Star className="text-pink-500" />
+              </div>
+            </div>
+
+            <div className="mt-8 h-2 rounded-full bg-gray-100 overflow-hidden">
+              <div className="w-[60%] h-full bg-pink-500 rounded-full"></div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-[30px] p-6 shadow-sm">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-gray-500">
+                  Completed Tasks
+                </p>
+
+                <h2 className="text-5xl font-black mt-3">
+                  89
+                </h2>
+              </div>
+
+              <div className="w-16 h-16 rounded-2xl bg-cyan-100 flex items-center justify-center">
+                <CheckCircle2 className="text-cyan-500" />
+              </div>
+            </div>
+
+            <div className="mt-8 h-2 rounded-full bg-gray-100 overflow-hidden">
+              <div className="w-[82%] h-full bg-cyan-500 rounded-full"></div>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-[30px] p-6 shadow-sm">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-gray-500">
+                  Contribution Streak
+                </p>
+
+                <h2 className="text-5xl font-black mt-3">
+                  28
+                </h2>
+              </div>
+
+              <div className="w-16 h-16 rounded-2xl bg-violet-100 flex items-center justify-center">
+                <Flame className="text-violet-500" />
+              </div>
+            </div>
+
+            <div className="mt-8 h-2 rounded-full bg-gray-100 overflow-hidden">
+              <div className="w-[90%] h-full bg-violet-500 rounded-full"></div>
+            </div>
+          </div>
+
         </div>
 
-        {/* Sections */}
-        <div className="grid lg:grid-cols-3 gap-8 mt-10">
+        {/* TASKS + PROFILE */}
+        <div className="grid grid-cols-3 gap-6 mt-8">
 
-          {/* Tasks */}
-          <div className="lg:col-span-2 rounded-[35px] border border-white/10 bg-white/5 backdrop-blur-xl p-8">
-            
-            <div className="flex items-center justify-between mb-8">
-              <h3 className="text-3xl font-black">
-                Active Tasks
-              </h3>
+          {/* TASK BOARD */}
+          <div className="col-span-2 bg-white rounded-[30px] shadow-sm">
 
-              <button className="flex items-center gap-2 rounded-2xl bg-violet-500 px-5 py-3 font-semibold hover:scale-105 transition">
-                <Search size={18} />
-                Explore Tasks
+            <div className="p-8 border-b border-gray-100 flex items-center justify-between">
+              <div>
+                <h3 className="text-3xl font-black">
+                  Active Tasks
+                </h3>
+
+                <p className="text-gray-500 mt-2">
+                  Tasks assigned by startups
+                </p>
+              </div>
+
+              <button className="rounded-2xl bg-black text-white px-6 py-4 font-semibold">
+                Browse Tasks
               </button>
             </div>
 
-            <div className="space-y-5">
+            <div className="p-6 space-y-5">
+
               {tasks.map((task, index) => (
                 <div
                   key={index}
-                  className="rounded-3xl border border-white/10 bg-black/20 p-6 hover:border-pink-500/30 transition"
+                  className="rounded-3xl border border-gray-100 p-6 flex items-center justify-between"
                 >
-                  <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
-                    
-                    <div>
-                      <h4 className="text-2xl font-bold">
-                        {task.title}
-                      </h4>
+                  <div>
+                    <h4 className="text-2xl font-bold">
+                      {task.title}
+                    </h4>
 
-                      <p className="text-white/50 mt-2">
-                        {task.startup}
-                      </p>
+                    <p className="text-gray-500 mt-2">
+                      {task.startup}
+                    </p>
+
+                    <div className="flex items-center gap-3 mt-4">
+
+                      <span className="px-4 py-2 rounded-full bg-yellow-100 text-yellow-700 text-sm font-semibold">
+                        +{task.reward} UT
+                      </span>
+
+                      <span className="px-4 py-2 rounded-full bg-cyan-100 text-cyan-700 text-sm font-semibold">
+                        {task.status}
+                      </span>
+
                     </div>
-
-                    <div className="flex items-center gap-4">
-                      
-                      <div className="rounded-2xl bg-yellow-500/10 border border-yellow-500/20 px-5 py-3">
-                        <p className="text-yellow-400 font-bold">
-                          +{task.reward} UT
-                        </p>
-                      </div>
-
-                      <div className="rounded-2xl bg-cyan-500/10 border border-cyan-500/20 px-5 py-3">
-                        <p className="text-cyan-400 font-semibold">
-                          {task.status}
-                        </p>
-                      </div>
-
-                      <button className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-white/10 transition">
-                        <ArrowUpRight />
-                      </button>
-                    </div>
-
                   </div>
+
+                  <button className="rounded-2xl bg-black text-white px-6 py-4 font-semibold">
+                    Open
+                  </button>
                 </div>
               ))}
+
             </div>
           </div>
 
-          {/* Right Sidebar */}
-          <div className="space-y-8">
+          {/* PROFILE */}
+          <div className="space-y-6">
 
-            {/* XP Card */}
-            <div className="rounded-[35px] border border-white/10 bg-white/5 backdrop-blur-xl p-8">
-              
-              <div className="flex items-center gap-4 mb-6">
-                <Star className="text-pink-400" size={30} />
+            <div className="bg-white rounded-[30px] p-8 shadow-sm">
 
-                <h3 className="text-2xl font-black">
-                  XP Progress
+              <div className="flex flex-col items-center text-center">
+
+                <div className="w-28 h-28 rounded-[30px] bg-gradient-to-r from-pink-500 to-violet-500 mb-5"></div>
+
+                <h3 className="text-3xl font-black">
+                  Ankit Yadav
                 </h3>
-              </div>
 
-              <div className="w-full h-5 rounded-full bg-white/10 overflow-hidden">
-                <div className="h-full w-[72%] rounded-full bg-gradient-to-r from-pink-500 to-cyan-500"></div>
-              </div>
+                <p className="text-gray-500 mt-2">
+                  Full Stack + AI Builder
+                </p>
 
-              <div className="flex justify-between mt-4 text-sm text-white/50">
-                <span>720 XP</span>
-                <span>1000 XP</span>
+                <button className="mt-6 rounded-2xl bg-black text-white px-6 py-4 font-semibold">
+                  Edit Profile
+                </button>
+
               </div>
             </div>
 
-            {/* Skills */}
-            <div className="rounded-[35px] border border-white/10 bg-white/5 backdrop-blur-xl p-8">
-              
+            <div className="bg-white rounded-[30px] p-8 shadow-sm">
+
               <h3 className="text-2xl font-black mb-6">
-                Top Skills
+                Skills
               </h3>
 
               <div className="flex flex-wrap gap-3">
+
                 {[
-                  'React',
                   'Next.js',
-                  'UI/UX',
-                  'Python',
+                  'React',
                   'AI',
+                  'Python',
                   'Tailwind',
+                  'UI/UX',
                 ].map((skill) => (
                   <div
                     key={skill}
-                    className="rounded-full border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold"
+                    className="px-5 py-3 rounded-full bg-[#f5f7fb] font-semibold"
                   >
                     {skill}
                   </div>
                 ))}
+
               </div>
-            </div>
 
-            {/* Opportunities */}
-            <div className="rounded-[35px] border border-white/10 bg-gradient-to-r from-pink-500/20 to-cyan-500/20 p-8">
-              
-              <Briefcase size={35} className="mb-5" />
-
-              <h3 className="text-3xl font-black">
-                18 New Opportunities
-              </h3>
-
-              <p className="text-white/60 mt-4">
-                Startups are actively looking for developers,
-                designers, and AI builders.
-              </p>
-
-              <button className="mt-6 w-full rounded-2xl bg-white text-black py-4 font-black hover:scale-105 transition">
-                Explore Now
-              </button>
             </div>
 
           </div>
+
         </div>
 
       </main>
