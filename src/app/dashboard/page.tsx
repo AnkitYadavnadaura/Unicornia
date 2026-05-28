@@ -39,6 +39,17 @@ import {
   // ArrowUpRight,
 } from 'lucide-react'
 
+type TaskType = {
+  id: number
+  title: string
+  startup: string
+  reward: number
+  status: string
+  priority: string
+  due: string
+  description: string
+}
+
 export default function IndividualDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(true)
   const [, setActiveTab] = useState('dashboard')
@@ -49,7 +60,7 @@ export default function IndividualDashboard() {
   const [, setShowOpportunityModal] = useState(false)
   const [, setWalletOpen] = useState(false)
   const [, setSettingsOpen] = useState(false)
-  const [, setSelectedTask] = useState<any>(null)
+  const [, setSelectedTask] = useState<TaskType | null>(null)
   const [taskInput, setTaskInput] = useState('')
   const [savedTasks, setSavedTasks] = useState<number[]>([])
   const [likedTasks, setLikedTasks] = useState<number[]>([])
