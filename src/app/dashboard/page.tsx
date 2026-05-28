@@ -16,45 +16,45 @@ import {
   Plus,
   Wallet,
   User,
-  Calendar,
-  MessageCircle,
+  // Calendar,
+  // MessageCircle,
   X,
-  ChevronRight,
-  Sparkles,
-  TrendingUp,
-  Target,
-  Zap,
-  Clock3,
+  // ChevronRight,
+  // Sparkles,
+  // TrendingUp,
+  // Target,
+  // Zap,
+  // Clock3,
   FolderKanban,
   Rocket,
-  Award,
-  Activity,
-  Send,
-  Filter,
+  // Award,
+  // Activity,
+  // Send,
+  // Filter,
   Menu,
-  BarChart3,
-  Bookmark,
-  Heart,
-  Eye,
-  ArrowUpRight,
+  // BarChart3,
+  // Bookmark,
+  // Heart,
+  // Eye,
+  // ArrowUpRight,
 } from 'lucide-react'
 
 export default function IndividualDashboard() {
   const [sidebarOpen, setSidebarOpen] = useState(true)
-  const [activeTab, setActiveTab] = useState('dashboard')
+  const [, setActiveTab] = useState('dashboard')
   const [search, setSearch] = useState('')
   const [notificationsOpen, setNotificationsOpen] = useState(false)
   const [profileOpen, setProfileOpen] = useState(false)
-  const [showTaskModal, setShowTaskModal] = useState(false)
-  const [showOpportunityModal, setShowOpportunityModal] = useState(false)
-  const [walletOpen, setWalletOpen] = useState(false)
-  const [settingsOpen, setSettingsOpen] = useState(false)
-  const [selectedTask, setSelectedTask] = useState<any>(null)
+  const [, setShowTaskModal] = useState(false)
+  const [, setShowOpportunityModal] = useState(false)
+  const [, setWalletOpen] = useState(false)
+  const [, setSettingsOpen] = useState(false)
+  const [, setSelectedTask] = useState<any>(null)
   const [taskInput, setTaskInput] = useState('')
   const [savedTasks, setSavedTasks] = useState<number[]>([])
   const [likedTasks, setLikedTasks] = useState<number[]>([])
   const [completedTasks, setCompletedTasks] = useState<number[]>([])
-  const [notifications, setNotifications] = useState([
+  const [notifications, ] = useState([
     'New startup invited you',
     'Task reward received',
     'XP level increased',
