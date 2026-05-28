@@ -1,48 +1,84 @@
+// /app/dashboard/Sidebar.tsx
+
 'use client'
 
 import {
   LayoutDashboard,
   Rocket,
-  Users,
   Wallet,
   Bell,
   Settings,
-  Trophy,
+  User,
+  BarChart3,
+  MessageSquare,
+  ShoppingBag,
   Briefcase,
 } from 'lucide-react'
 
-const links = [
+type SidebarProps = {
+  activePage: string
+  setActivePage: (
+    page: string
+  ) => void
+}
+
+const menu = [
   {
-    name: 'Dashboard',
+    name: 'dashboard',
+    label: 'Dashboard',
     icon: LayoutDashboard,
   },
   {
-    name: 'Startups',
-    icon: Rocket,
-  },
-  {
-    name: 'Team',
-    icon: Users,
-  },
-  {
-    name: 'Wallet',
-    icon: Wallet,
-  },
-  {
-    name: 'Funding',
+    name: 'tasks',
+    label: 'Tasks',
     icon: Briefcase,
   },
   {
-    name: 'Notifications',
+    name: 'wallet',
+    label: 'Wallet',
+    icon: Wallet,
+  },
+  {
+    name: 'analytics',
+    label: 'Analytics',
+    icon: BarChart3,
+  },
+  {
+    name: 'chat',
+    label: 'Chat',
+    icon: MessageSquare,
+  },
+  {
+    name: 'notifications',
+    label: 'Notifications',
     icon: Bell,
   },
   {
-    name: 'Settings',
+    name: 'startups',
+    label: 'Startups',
+    icon: Rocket,
+  },
+  {
+    name: 'marketplace',
+    label: 'Marketplace',
+    icon: ShoppingBag,
+  },
+  {
+    name: 'profile',
+    label: 'Profile',
+    icon: User,
+  },
+  {
+    name: 'settings',
+    label: 'Settings',
     icon: Settings,
   },
 ]
 
-export default function Sidebar() {
+export default function Sidebar({
+  activePage,
+  setActivePage,
+}: SidebarProps) {
   return (
     <aside className="w-[280px] min-h-screen bg-[#081120] text-white p-6 flex flex-col justify-between">
       
@@ -52,18 +88,25 @@ export default function Sidebar() {
         </h1>
 
         <div className="space-y-4">
-          {links.map((link) => {
-            const Icon = link.icon
+          {menu.map((item) => {
+            const Icon = item.icon
 
             return (
               <button
-                key={link.name}
-                className="w-full flex items-center gap-4 rounded-2xl px-5 py-4 bg-white/5 hover:bg-gradient-to-r hover:from-pink-500 hover:to-violet-500 transition-all"
+                key={item.name}
+                onClick={() =>
+                  setActivePage(item.name)
+                }
+                className={`w-full flex items-center gap-4 rounded-2xl px-5 py-4 transition-all ${
+                  activePage === item.name
+                    ? 'bg-gradient-to-r from-pink-500 to-violet-500'
+                    : 'bg-white/5 hover:bg-white/10'
+                }`}
               >
-                <Icon size={22} />
+                <Icon size={20} />
 
                 <span className="font-semibold">
-                  {link.name}
+                  {item.label}
                 </span>
               </button>
             )
@@ -71,25 +114,18 @@ export default function Sidebar() {
         </div>
       </div>
 
-      <div className="rounded-[30px] bg-gradient-to-r from-pink-500 to-violet-500 p-6">
-        <div className="flex items-center gap-3">
-          <Trophy />
-
-          <h3 className="text-2xl font-black">
-            Founder Rank
-          </h3>
-        </div>
-
-        <h2 className="text-6xl font-black mt-6">
-          #07
+      <div className="rounded-[30px] bg-gradient-to-r from-pink-500 to-cyan-500 p-6">
+        <h2 className="text-3xl font-black">
+          Unicornia
         </h2>
 
-        <p className="mt-4 text-white/80">
-          Top startup builder this week
+        <p className="text-white/80 mt-4">
+          Build startups. Earn tokens.
+          Join the future ecosystem.
         </p>
 
         <button className="mt-6 w-full rounded-2xl bg-white text-black py-4 font-bold">
-          View Leaderboard
+          Upgrade
         </button>
       </div>
     </aside>
