@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import {
-login,
+login
 } from '../app/auth/actions'
 type LoginOverlayProps = {
   close: () => void;
@@ -116,7 +116,7 @@ export default function LoginOverlay({ close }: LoginOverlayProps) {
                   Enter Unicornia
                 </button>
               </div>
-
+              </form>
             </div>
           </div>
         </div>
