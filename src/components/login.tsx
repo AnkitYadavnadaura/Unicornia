@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import {
+login,
+} from '../app/auth/actions'
 type LoginOverlayProps = {
   close: () => void;
 };
@@ -79,15 +82,20 @@ export default function LoginOverlay({ close }: LoginOverlayProps) {
               </div>
 
               {/* Form */}
+              <form
+  action={login}
+>
               <div className="space-y-5">
 
                 <input
+                  name="email"
                   type="email"
                   placeholder="Enter your email"
                   className="w-full px-6 py-5 rounded-2xl bg-white/5 border border-white/10 focus:outline-none focus:border-pink-500 text-lg"
                 />
 
                 <input
+                  name="password"
                   type="password"
                   placeholder="Enter password"
                   className="w-full px-6 py-5 rounded-2xl bg-white/5 border border-white/10 focus:outline-none focus:border-cyan-500 text-lg"
