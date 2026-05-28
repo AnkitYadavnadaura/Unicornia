@@ -35,20 +35,32 @@ export default function KanbanBoard() {
     },
   ])
 
-  const moveTask = (
-    task: Task,
-    from: 'todo' | 'progress'
-  ) => {
-    if (from === 'todo') {
-      setTodo(todo.filter((t) => t.id !== task.id))
-      setProgress([...progress, task])
-    }
+ // ✅ FIXED VERSION
 
-    if (from === 'progress') {
-      setProgress(progress.filter((t) => t.id !== task.id))
-      setDone([...done, task])
-    }
+const moveTask = (
+  task: Task,
+  from: 'todo' | 'progress',
+  to: 'progress' | 'done'
+) => {
+  if (from === 'todo' && to === 'progress') {
+    setTodo(
+      todo.filter((t) => t.id !== task.id)
+    )
+
+    setProgress([...progress, task])
   }
+
+  if (
+    from === 'progress' &&
+    to === 'done'
+  ) {
+    setProgress(
+      progress.filter((t) => t.id !== task.id)
+    )
+
+    setDone([...done, task])
+  }
+}
 
   return (
     <div className="bg-white rounded-[30px] p-8 shadow-sm mt-8">
