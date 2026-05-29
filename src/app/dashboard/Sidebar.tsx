@@ -15,7 +15,6 @@ import {
   MessageSquare,
   ShoppingBag,
   Briefcase,
-  Sparkles,
 } from 'lucide-react'
 
 type SidebarProps = {
