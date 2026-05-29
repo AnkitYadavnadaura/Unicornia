@@ -2,6 +2,8 @@
 
 'use client'
 
+import { motion } from 'framer-motion'
+
 import {
   LayoutDashboard,
   Rocket,
@@ -13,6 +15,7 @@ import {
   MessageSquare,
   ShoppingBag,
   Briefcase,
+  Sparkles,
 } from 'lucide-react'
 
 type SidebarProps = {
@@ -80,54 +83,156 @@ export default function Sidebar({
   setActivePage,
 }: SidebarProps) {
   return (
-    <aside className="w-[280px] min-h-screen bg-[#081120] text-white p-6 flex flex-col justify-between">
+    <aside className="w-[300px] min-h-screen bg-white/70 backdrop-blur-3xl border-r border-white/20 p-6 flex flex-col justify-between sticky top-0">
       
+      {/* TOP */}
       <div>
-        <h1 className="text-4xl font-black mb-10">
-          UNICORNIA
-        </h1>
+        
+        {/* LOGO */}
+        <div className="flex items-center gap-4 mb-12">
+          
+          <motion.div
+            whileHover={{
+              rotate: 12,
+              scale: 1.08,
+            }}
+            className="w-16 h-16 rounded-[24px] bg-gradient-to-r from-pink-500 via-violet-500 to-cyan-500 flex items-center justify-center shadow-[0_0_40px_rgba(236,72,153,0.45)]"
+          >
+            <Sparkles className="text-white" />
+          </motion.div>
 
-        <div className="space-y-4">
+          <div>
+            <h1 className="text-3xl font-black text-[#081120]">
+              Unicornia
+            </h1>
+
+            <p className="text-sm text-gray-500">
+              Startup Civilization
+            </p>
+          </div>
+        </div>
+
+        {/* PROFILE CARD */}
+        <motion.div
+          whileHover={{
+            scale: 1.02,
+          }}
+          className="rounded-[32px] bg-gradient-to-r from-[#0f172a] to-[#111827] p-6 text-white relative overflow-hidden mb-10"
+        >
+          <div className="absolute top-0 right-0 w-[140px] h-[140px] bg-cyan-500/20 rounded-full blur-3xl"></div>
+
+          <div className="relative z-10">
+            
+            <div className="flex items-center gap-4">
+              
+              <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-pink-500 to-cyan-500"></div>
+
+              <div>
+                <h2 className="text-xl font-black">
+                  Ankit
+                </h2>
+
+                <p className="text-white/60">
+                  Founder Rank #12
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4 mt-8">
+              
+              <div className="rounded-2xl bg-white/10 p-4">
+                <p className="text-white/60 text-sm">
+                  Tokens
+                </p>
+
+                <h3 className="text-3xl font-black mt-2">
+                  12.5K
+                </h3>
+              </div>
+
+              <div className="rounded-2xl bg-white/10 p-4">
+                <p className="text-white/60 text-sm">
+                  XP
+                </p>
+
+                <h3 className="text-3xl font-black mt-2">
+                  9.4K
+                </h3>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* MENU */}
+        <div className="space-y-3">
           {menu.map((item) => {
             const Icon = item.icon
 
             return (
-              <button
+              <motion.button
                 key={item.name}
+                whileHover={{
+                  scale: 1.03,
+                  x: 5,
+                }}
+                whileTap={{
+                  scale: 0.98,
+                }}
                 onClick={() =>
                   setActivePage(item.name)
                 }
-                className={`w-full flex items-center gap-4 rounded-2xl px-5 py-4 transition-all ${
+                className={`relative w-full flex items-center gap-4 rounded-2xl px-5 py-4 overflow-hidden transition-all ${
                   activePage === item.name
-                    ? 'bg-gradient-to-r from-pink-500 to-violet-500'
-                    : 'bg-white/5 hover:bg-white/10'
+                    ? 'text-white'
+                    : 'text-[#081120]'
                 }`}
               >
-                <Icon size={20} />
+                
+                {activePage === item.name && (
+                  <motion.div
+                    layoutId="activeSidebar"
+                    className="absolute inset-0 bg-gradient-to-r from-pink-500 via-violet-500 to-cyan-500 rounded-2xl shadow-[0_0_40px_rgba(236,72,153,0.35)]"
+                  />
+                )}
 
-                <span className="font-semibold">
-                  {item.label}
-                </span>
-              </button>
+                <div className="relative z-10 flex items-center gap-4">
+                  <Icon size={22} />
+
+                  <span className="font-bold text-lg">
+                    {item.label}
+                  </span>
+                </div>
+              </motion.button>
             )
           })}
         </div>
       </div>
 
-      <div className="rounded-[30px] bg-gradient-to-r from-pink-500 to-cyan-500 p-6">
-        <h2 className="text-3xl font-black">
-          Unicornia
-        </h2>
+      {/* BOTTOM */}
+      <motion.div
+        whileHover={{
+          scale: 1.02,
+        }}
+        className="rounded-[32px] bg-gradient-to-r from-cyan-500 to-blue-500 p-6 text-white relative overflow-hidden"
+      >
+        <div className="absolute -right-10 -bottom-10 w-[140px] h-[140px] bg-white/10 rounded-full blur-2xl"></div>
 
-        <p className="text-white/80 mt-4">
-          Build startups. Earn tokens.
-          Join the future ecosystem.
-        </p>
+        <div className="relative z-10">
+          
+          <h2 className="text-3xl font-black">
+            AI Founder
+          </h2>
 
-        <button className="mt-6 w-full rounded-2xl bg-white text-black py-4 font-bold">
-          Upgrade
-        </button>
-      </div>
+          <p className="mt-3 text-white/80 leading-relaxed">
+            Need funding, team, startup ideas,
+            or pitch guidance?
+          </p>
+
+          <button className="mt-6 w-full rounded-2xl bg-white text-black py-4 font-black hover:scale-[1.02] transition-all">
+            Open AI Assistant
+          </button>
+        </div>
+      </motion.div>
     </aside>
   )
 }
