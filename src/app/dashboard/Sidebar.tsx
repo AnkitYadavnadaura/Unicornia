@@ -91,7 +91,7 @@ export default function Sidebar({
         {/* LOGO */}
         <div className="flex items-center gap-4 mb-12">
           
-          <motion.div
+          {/* <motion.div
             whileHover={{
               rotate: 12,
               scale: 1.08,
@@ -99,7 +99,7 @@ export default function Sidebar({
             className="w-16 h-16 rounded-[24px] bg-gradient-to-r from-pink-500 via-violet-500 to-cyan-500 flex items-center justify-center shadow-[0_0_40px_rgba(236,72,153,0.45)]"
           >
             <Sparkles className="text-white" />
-          </motion.div>
+          </motion.div> */}
 
           <div>
             <h1 className="text-3xl font-black text-[#081120]">
@@ -113,55 +113,7 @@ export default function Sidebar({
         </div>
 
         {/* PROFILE CARD */}
-        <motion.div
-          whileHover={{
-            scale: 1.02,
-          }}
-          className="rounded-[32px] bg-gradient-to-r from-[#0f172a] to-[#111827] p-6 text-white relative overflow-hidden mb-10"
-        >
-          <div className="absolute top-0 right-0 w-[140px] h-[140px] bg-cyan-500/20 rounded-full blur-3xl"></div>
-
-          <div className="relative z-10">
-            
-            <div className="flex items-center gap-4">
-              
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-r from-pink-500 to-cyan-500"></div>
-
-              <div>
-                <h2 className="text-xl font-black">
-                  Ankit
-                </h2>
-
-                <p className="text-white/60">
-                  Founder Rank #12
-                </p>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4 mt-8">
-              
-              <div className="rounded-2xl bg-white/10 p-4">
-                <p className="text-white/60 text-sm">
-                  Tokens
-                </p>
-
-                <h3 className="text-3xl font-black mt-2">
-                  12.5K
-                </h3>
-              </div>
-
-              <div className="rounded-2xl bg-white/10 p-4">
-                <p className="text-white/60 text-sm">
-                  XP
-                </p>
-
-                <h3 className="text-3xl font-black mt-2">
-                  9.4K
-                </h3>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+        
 
         {/* MENU */}
         <div className="space-y-3">
